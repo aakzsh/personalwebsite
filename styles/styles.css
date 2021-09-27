@@ -1,0 +1,37 @@
+         
+   .navbar-custom {
+    background-color: 
+black}
+ 
+body{
+    background-color: black;
+}
+
+.content{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 20.2rem;
+    color: white;
+}
+
+.contacts{
+float: right;
+/* margin: 0; */
+/* margin-right: -3rem; */
+   position:fixed;
+    top: 95%;
+    left: 90%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  
+}
+
+.profile{
+    position:absolute;
+   bottom:0;
+   
+}
