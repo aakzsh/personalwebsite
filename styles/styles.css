@@ -70,7 +70,7 @@ width: 60%;
 
 .edits-title{
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .about-desc{
@@ -79,7 +79,42 @@ width: 60%;
 
 
 
-@media screen and (min-width: 480px) {
+.flower1{
+    display: none;
+      margin-left: -2rem;
+      position: fixed;
+      width: 20rem;
+      transform: rotate(40deg);
+  }
+
+  .flower2{
+    /* display: none; */
+    display: none;
+   z-index: 3;
+      /* top: 3rem; */
+      bottom: -4rem;
+      right: 0;
+      float: right;
+    margin-left: -10rem;
+    position: fixed;
+    width: 20rem;
+    transform: rotate(-40deg);
+}
+
+.edit-heading{
+    color: white;
+}
+
+
+.video{
+    height: 20rem;
+    width: 40rem;
+    background-color: pink;
+    z-index: 2;
+}
+
+
+@media screen and (min-width: 500px) {
      
 /* body{
     background-color: pink;
@@ -150,7 +185,7 @@ width: 60%;
 
     
   .flower1{
-    
+    display:block;
     margin-left: -2rem;
     position: fixed;
     width: 20rem;
@@ -160,6 +195,7 @@ width: 60%;
 .flower2{
  
  z-index: 3;
+ display:block;
     /* top: 3rem; */
     bottom: -4rem;
     right: 0;
@@ -186,39 +222,3 @@ width: 60%;
 
 }
 
-
-
-
-  .flower1{
- 
-      margin-left: -2rem;
-      position: fixed;
-      width: 20rem;
-      transform: rotate(40deg);
-  }
-
-  .flower2{
-
-    /* display: none; */
-   z-index: 3;
-      /* top: 3rem; */
-      bottom: -4rem;
-      right: 0;
-      float: right;
-    margin-left: -10rem;
-    position: fixed;
-    width: 20rem;
-    transform: rotate(-40deg);
-}
-
-.edit-heading{
-    color: white;
-}
-
-
-.video{
-    height: 20rem;
-    width: 40rem;
-    background-color: pink;
-    z-index: 2;
-}
