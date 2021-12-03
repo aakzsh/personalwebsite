@@ -20,6 +20,8 @@ body{
     color: white;
 }
 
+.video iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
 .contacts{
 float: right;
 /* margin: 0; */
@@ -75,6 +77,7 @@ width: 60%;
 
 .about-desc{
     color: white;
+    font-size: 1.7rem;
 }
 
 
@@ -107,8 +110,9 @@ width: 60%;
 
 
 .video{
-    /* height: 20rem;
-    width: 40rem; */
+    /* height: 20rem; */
+    width: 40rem;
+    height: 20rem;
     position: relative;
     background-color: pink;
     z-index: 2;
@@ -116,7 +120,7 @@ width: 60%;
 
 .proj-div{
     /* border-radius: 30px; */
-    margin: 7rem;
+    margin: 2rem;
     min-height: 30rem;
     width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
@@ -127,7 +131,7 @@ width: 60%;
 
 .child1{
     min-height: 15rem;
-    width: 100%; background-color: purple;
+    width: 100%; background-color: white;
 }
 
 @media screen and (min-width: 500px) {
@@ -248,8 +252,10 @@ width: 60%;
 }
 
 .child1{
-    width: 50%; background-color: purple;
+    width: 50%; background-color: white;
 }
+
+.video iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
 }
 
 
@@ -262,4 +268,4 @@ width: 60%;
 }
 
 
-.video iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
