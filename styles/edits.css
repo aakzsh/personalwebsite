@@ -53,3 +53,33 @@ html{
 .edit-text{
   font-size: 4rem;
 }
+
+.edit1{
+height: 315px;
+width: 560px;
+}
+
+
+
+.edit4{
+height: 400px;
+width: 400px;
+}
+@media screen and (max-width: 500px) {
+  .edit-text{
+    font-size: 2rem;
+  }
+  .edit1{
+    height: 197px;
+    width: 350px;
+    }
+    
+    
+    
+    .edit4{
+    height: 350px;
+    width: 350px;
+    }
+
+
+}

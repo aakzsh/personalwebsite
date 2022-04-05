@@ -33,6 +33,10 @@ p{
     transition: 0.5s;
 }
 
+img{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
     .tiles{
         

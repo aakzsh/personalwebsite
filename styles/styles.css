@@ -48,7 +48,8 @@ float: right;
 .photo{
     /* margin-bottom: -4rem; */
 /* height: 40rem; */
-width: 30%;
+/* width: 30%; */
+width: 30rem;
 }
 
 
@@ -210,7 +211,7 @@ width: 30%;
     
     }
     .photo{
-    height: auto;
+    width: 60rem;
 }
 
     
