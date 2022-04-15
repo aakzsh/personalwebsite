@@ -14,12 +14,11 @@ window.onload = ()=>{
  
  
  function check(a){
-     if(a=='english'){
-        hindi();
+     if(a!='hindi'){
+         english();
      }
      else{
-         
-         english();
+         hindi();
      }
  }
  

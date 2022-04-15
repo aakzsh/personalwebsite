@@ -14,14 +14,13 @@ window.onload = ()=>{
  
  
  function check(a){
-    if(a=='english'){
-       hindi();
-    }
-    else{
-        
-        english();
-    }
-}
+     if(a!='hindi'){
+         english();
+     }
+     else{
+         hindi();
+     }
+ }
  
  function english(){
  document.getElementById('title').innerHTML = 'projects';

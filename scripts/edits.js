@@ -14,14 +14,13 @@ window.onload = ()=>{
  
  
  function check(a){
-    if(a=='english'){
-       hindi();
-    }
-    else{
-        
-        english();
-    }
-}
+     if(a!='hindi'){
+         english();
+     }
+     else{
+         hindi();
+     }
+ }
  
  function english(){
     document.getElementById('endless').innerHTML = 'dive into the world of endless<br>imagination, one frame at a time';
@@ -54,7 +53,7 @@ document.getElementById('navcontact').innerHTML = 'संपर्क';
 document.getElementById('navabout').innerHTML = 'अबाउट';
  }
  
-
+ 
  
  function set(){
      var x = document.getElementById('lang-show').textContent;
