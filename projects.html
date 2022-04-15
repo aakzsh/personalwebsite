@@ -18,6 +18,7 @@
   <title>aakash - projects</title>
 </head>
 <body>
+  <script src="scripts/projects.js"></script>
   <nav class="navbar navbar-inverse navbar-custom">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -26,28 +27,30 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#" style="color: white;">हिन्दी</a>
+        <a class="navbar-brand" style="color: white; cursor: pointer;" id="lang-show"  onclick="set()">हिन्दी</a>
+     
+        <!-- <a class="navbar-brand" style="color: white;" id="lang-show" onclick="set()">हिन्दी</a> -->
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.html" style="color: white;">home</a></li>
+        <ul class="nav navbar-nav navbar-right" >
+          <li><a href="index.html" style="color: white;" id="navhome">home</a></li>
           <li><a style="color: white; margin-left: -2rem; margin-right: -2rem;">•</a></li>
-          <li><a href="about.html" style="color: white;">about</a></li>
+          <li><a href="about.html" style="color: white;" id="navabout">about</a></li>
           <!-- <li><a href="/analyse" style="color: white;">•</a></li> -->
           <li><a style="color: white; margin-left: -2rem; margin-right: -2rem;">•</a></li>
-          <li><a href="projects.html" style="color: white;">projects</a></li>
+          <li><a href="projects.html" style="color: white;" id="navproj" >projects</a></li>
           <!-- <li><a href="/analyse" style="color: white;">•</a></li> -->
           <li><a style="color: white; margin-left: -2rem; margin-right: -2rem;">•</a></li>
-          <li><a href="edits.html" style="color: white;">edits</a></li>
+          <li><a href="edits.html" style="color: white;" id="navedits">edits</a></li>
           <li><a style="color: white; margin-left: -2rem; margin-right: -2rem;">•</a></li>
-          <li><a href="contact.html" style="color: white;">contact</a></li>
+          <li><a href="contact.html" style="color: white;" id="navcontact" >contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-<center>  <p class="edits-title">projects</p><br>
+<center>  <p class="edits-title" id="title">projects</p><br>
 
   <div class="proj-div">
 
@@ -55,7 +58,7 @@
   
 
     </div>
-    <div class="child2"><p>Cloudees is an application powered with deep learning that lets you click or upload pictures of clouds and predicts the category that the cloud falls into. The application is able to differentiate between 9 major types of cloud categories. It is available for android as well as for web.</p>
+    <div class="child2"><p id="cloudees">Cloudees is an application powered with deep learning that lets you click or upload pictures of clouds and predicts the category that the cloud falls into. The application is able to differentiate between 9 major types of cloud categories. It is available for android as well as for web.</p>
     <div class="bottom-tile">
       <div class="members">
         <div class="avatar">
@@ -80,7 +83,7 @@
 
       <!-- <p style="color: white;">hemllo</p> -->
     </div>
-    <div class="child2"><p>Awestruck is the new generation all in one social media application. It is made with dart on top of flutter as an android application for now. The app supports multiple features like pedometer, stargazing, chatting and more!</p>
+    <div class="child2"><p id="awestruck">Awestruck is the new generation all in one social media application. It is made with dart on top of flutter as an android application for now. The app supports multiple features like pedometer, stargazing, chatting and more!</p>
     <div class="bottom-tile">
       <div class="members">
         <div class="avatar">
@@ -103,7 +106,7 @@
     <div class="child1">
       <img class="cover" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/872/025/datas/medium.png" alt="">
     </div>
-    <div class="child2"><p>IceSicle is a slide puzzle game made using flutter and is available for multi platforms including android, web and windows. The game is sea themed up with many animations integrated with the help of rive. The game is live at https://icesicle-puzzle.web.app</p>
+    <div class="child2"><p id="icesicle">IceSicle is a slide puzzle game made using flutter and is available for multi platforms including android, web and windows. The game is sea themed up with many animations integrated with the help of rive. The game is live at https://icesicle-puzzle.web.app</p>
     <div class="bottom-tile">
       <div class="members">
         <div class="avatar">
@@ -126,7 +129,7 @@
     <div class="child1">
       <img class="cover" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/518/222/datas/medium.png" alt="">
     </div>
-    <div class="child2"><p>Visualise is a web based application that lets you analyse your overall mood and expressions throughout online meets/speeches or anything of such sort. It runs mood detection throughout the session and gives a detailed summary at the end.</p>
+    <div class="child2"><p id="visualise">Visualise is a web based application that lets you analyse your overall mood and expressions throughout online meets/speeches or anything of such sort. It runs mood detection throughout the session and gives a detailed summary at the end.</p>
     <div class="bottom-tile">
       <div class="members">
         <div class="avatar">
