@@ -14,13 +14,14 @@ window.onload = ()=>{
  
  
  function check(a){
-     if(a=='english'){
-         english();
-     }
-     else{
-         hindi();
-     }
- }
+    if(a=='english'){
+       hindi();
+    }
+    else{
+        
+        english();
+    }
+}
  
  function english(){
  document.getElementById('contact').innerHTML = "contact me";

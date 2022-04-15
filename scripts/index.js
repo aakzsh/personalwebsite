@@ -15,10 +15,11 @@ localStorage.setItem('aakzsh-lang', 'english')
 
 function check(a){
     if(a=='english'){
-        english();
+       hindi();
     }
     else{
-        hindi();
+        
+        english();
     }
 }
 
