@@ -10,6 +10,8 @@ window.onload = ()=>{
      console.log(a)
  
      check(a);
+     document.getElementById('whole').style.visibility = 'visible'
+     document.getElementById('load').style.display = 'none'
  }
  
  

@@ -1,4 +1,5 @@
 window.onload = ()=>{
+
    var a = 'english'
     try{
 a = localStorage.getItem('aakzsh-lang');
@@ -10,10 +11,13 @@ localStorage.setItem('aakzsh-lang', 'english')
     console.log(a)
 
     check(a);
+    document.getElementById('whole').style.visibility = 'visible'
+    document.getElementById('load').style.display = 'none'
 }
 
 
 function check(a){
+
     if(a!='hindi'){
         english();
     }
