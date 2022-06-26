@@ -35,7 +35,7 @@ document.getElementById('navabout').innerHTML = 'about';
  
  function hindi(){
     document.getElementById('intro').innerHTML = "मैं कौन हूँ ?";
-    document.getElementById('desc').innerHTML = 'hindi baazi';
+    document.getElementById('desc').innerHTML = 'मैं आकाश श्रीवास्तव हूं। अभी मैं एक अंडरग्रैजुएट स्टूडेंट हूं, USICT, नई दिल्ली में, लेकिन सिर्फ वह ही मेरी पहचान नहीं है, मुझे लगता है मैं उससे कई ज्यादा हूं। मैं 20 वर्ष का हूं, और नोएडा में रहता हूं। मुझे कोडिंग करना पसंद है, साथ ही मुझे और भी चीज़ें पसंद है जैसे की गाने, घूमना, वीडियो एडिटिंग आदि। बस इतना काफ़ी है।';
     document.getElementById('lang-show').innerHTML = 'english';
  
     document.getElementById('navhome').innerHTML = 'होम';

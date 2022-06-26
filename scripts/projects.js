@@ -40,10 +40,10 @@ window.onload = ()=>{
  
  function hindi(){
     document.getElementById('title').innerHTML = 'प्रोजेक्ट्स';
-    document.getElementById('awestruck').innerHTML = "i'm aakash";
-    document.getElementById('cloudees').innerHTML = 'i do things';
-    document.getElementById('visualise').innerHTML = "i'm aakash";
-    document.getElementById('icesicle').innerHTML = 'i do things';
+    document.getElementById('awestruck').innerHTML = "ऑस्ट्रक एक सोशल मिडिया एप है जिसमे आप काफी कुछ कर सकते है जैसे कि चैटिंग, स्टेप काउंटर, तारों को देखना आदि।";
+    document.getElementById('cloudees').innerHTML = 'क्लाइडीज एक एप है जिसमे आप बादलों की तस्वीर डाल सकते है और फिर वह आपको बताएगा की जिस बादल की तस्वीर आपने अपलोड की है वह किस कैटेगरी का है। यह एप 9 प्रकार की कैटेगरी को पहचानने में सक्षम है।';
+    document.getElementById('visualise').innerHTML = "विजुलाइज एक वेब एप्लीकेशन है जिसमे आप अपनी वीडियो चालू करके यह देख सकते है की पूरी वीडियो में आपने कितने प्रकार की अभिव्यक्ति की। अंत में आप उसका पूरा डाटा भी देख पाएंगे।";
+    document.getElementById('icesicle').innerHTML = 'आइसिकल एक स्लाइड पजल गेम है जो की फ्लटर पर बनाया गया है। इसके एनिमेशंस के किए राईव का प्रयोग किया गया है। पूरा गेम समुंदर की थीम पर आधारित है।';
      document.getElementById('lang-show').innerHTML = 'english';
 
      document.getElementById('navhome').innerHTML = 'होम';
