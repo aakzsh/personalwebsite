@@ -38,11 +38,14 @@ float: right;
 }
 
 .profile{
-    position:absolute;
-   bottom:0;
-   
+    position: absolute;
+    bottom: 0;
+    vertical-align: baseline;
 
-
+}
+.navbarr{
+    background-color: black;
+    z-index: 1;
 }
 
 .photo{
@@ -50,6 +53,7 @@ float: right;
 /* height: 40rem; */
 /* width: 30%; */
 width: 30rem;
+vertical-align: baseline;
 }
 
 
@@ -210,14 +214,14 @@ width: 30rem;
     }
     
     .profile{
-        position:absolute;
-       bottom:0;
-       
-    
+        position: absolute;
+        bottom: 0;
+        vertical-align: baseline;
     
     }
     .photo{
     width: 40rem;
+    vertical-align: baseline;
 }
 
     
