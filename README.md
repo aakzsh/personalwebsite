@@ -1,8 +1,24 @@
-index.html
+# portfolio
 
-# aakzsh.co
-A website of mine where I've given a short intro of mine and my works
+## Project setup
+```
+npm install
+```
 
-# Usage
-Feel free to fork it, clone it and modify it however you want to
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
