@@ -14,7 +14,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th style=" padding-left: 1rem;">#</th>
                     <th>Title</th>
                     <th>Album</th>
                     <th>Date Added</th>
@@ -33,11 +33,12 @@
                 </tr>
                 <br>
                 <tr v-for="user in users" v-bind:key="user.name" class="songs-listitem">
-                    <td class="serialnum">{{ user.name }}</td>
+                    <!-- <td class="serialnum">{{ user.name }}</td>
                     <td class="songtitle">{{ user.age }}</td>
                     <td class="album">{{ user.name }}</td>
                     <td class="dateadded">{{ user.age }}</td>
-                    <td class="duration">{{ user.occupation }}</td>
+                    <td class="duration">{{ user.occupation }}</td> -->
+                    <SongTile />
                 </tr>
             </tbody>
         </table>
@@ -45,8 +46,12 @@
 </template>
   
 <script>
+import SongTile from './SongTile.vue';
 export default {
     name: 'RightPaneBottom',
+    components: {
+        SongTile
+    },
     data() {
         return {
             users: [
@@ -99,8 +104,9 @@ export default {
 <style scoped>
 .rightpane-bottom-parent {
     margin-top: 2rem;
-    background-color: #12121280;
-    height: 100%;
+    background: linear-gradient(#12121250,#121212, #121212);
+    /* background-color: #121212; */
+    height: max-content;
     backdrop-filter: blur(30px);
     border-radius: 0 0 1rem 1rem;
 }
@@ -146,23 +152,7 @@ table{
 
 
 
-.songtitle{
-    width: 30%;
-}
 
-.serialnum{
-    width: 5%;
-}
-
-.dateadded{
-    width: 20%;
-}
-.duration{
-    width: 20%;
-}
-.album{
-    width: 20%;
-}
 
 .line{
     width: 100%;
@@ -175,11 +165,11 @@ table{
 
 .songs-listitem{
     background-color: rgba(0, 0, 0, 0);
-   
 }
 
 .songs-listitem:hover{
-    background-color: rgba(0, 0, 0, 0.201);
+    background-color: rgba(255, 255, 255, 0.1);
 }
+
 </style>
   

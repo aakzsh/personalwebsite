@@ -25,7 +25,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700');
 .profilecard-parent{
     margin-left: 2rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     gap: 2.5rem;
     align-items: flex-end;

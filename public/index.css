@@ -6,4 +6,14 @@ html, body{
     color: #ffffff;
     margin: 0;
     padding: 0;
+    
+}
+
+::selection {
+    color: rgb(0, 0, 0);
+    background: #f8ff25;
+}
+  
+img{
+   cursor: pointer; 
 }

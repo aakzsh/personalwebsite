@@ -28,7 +28,13 @@ export default {
         flex-direction: column;
         /* justify-content: center; */
         align-items: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
         
+    }
+    .parent:hover{
+        overflow-y: auto;
+        scrollbar-width: thin;
     }
 </style>
   

@@ -55,7 +55,8 @@ export default {
 }
 
 .playingview-parent:hover {
-    overflow-y: scroll;
+    
+    overflow-y: auto;
 }
 
 .close {
