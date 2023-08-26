@@ -40,6 +40,7 @@ export default {
     }
     .rightpane-parent:hover {
     overflow-y: auto;
+
 }
 </style>
   

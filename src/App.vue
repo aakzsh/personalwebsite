@@ -1,5 +1,5 @@
 <template>
-  <p v-if="isMobile">Support for Mobile Devices coming soon!<br>Till then, just know that this is gonna be an amazing portfolio</p>
+  <MobileHomePage v-if="isMobile"/>
   <MainContent v-if="isWeb"/>
   <BottomPlayer v-if="isWeb"/>
 </template>
@@ -7,11 +7,13 @@
 <script>
 import MainContent from './components/MainContent.vue';
 import BottomPlayer from './components/BottomPlayer.vue';
+import MobileHomePage from './components/HomePage.vue'
 export default {
   name: 'App',
   components: {
     MainContent,
-    BottomPlayer
+    BottomPlayer,
+    MobileHomePage
   },
   data: function(){
     return {

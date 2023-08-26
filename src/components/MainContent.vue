@@ -20,7 +20,7 @@ import PlayingView from './PlayingView.vue';
 export default {
     name: 'MainContent',
     setup(){
-        const count = ref(false);
+        const count = ref(true);
         function increment() {
       count.value = !count.value;
     }
