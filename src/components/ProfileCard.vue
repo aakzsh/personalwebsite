@@ -28,11 +28,12 @@ export default {
     margin-top: 1rem;
     display: flex;
     gap: 2.5rem;
-    align-items: end;
+    align-items: flex-end;
 }
 .profile-img{
     height: 15rem;
     width: 15rem;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
 }
 
 .pre-title{

@@ -21,6 +21,8 @@ export default {
     .parent{
         height: 100%;
         width: 5rem;
+        min-width: 5rem;
+        max-width: 5rem;
         /* background-color: black; */
         display: flex;
         flex-direction: column;

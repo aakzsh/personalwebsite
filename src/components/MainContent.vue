@@ -2,19 +2,37 @@
     <div class="main-content">
         <LeftPane />
         <RightPane />
+        <!-- <p v-on:click="increment">{{ count }}</p> -->
+        <PlayingView v-if="count"/>
+        <!-- <div v-if="isPlayingViewOpen">
+            
+        </div> -->
 
-        <!-- <LeftPane /> -->
     </div>
 </template>
   
 <script>
+import { ref } from 'vue';
+
 import LeftPane from './LeftPane.vue';
 import RightPane from './RightPane.vue';
+import PlayingView from './PlayingView.vue';
 export default {
     name: 'MainContent',
+    setup(){
+        const count = ref(true);
+        function increment() {
+      count.value = !count.value;
+    }
+        return {count, increment}
+    },
     components: {
-        LeftPane,
-        RightPane
+    LeftPane,
+    RightPane,
+    PlayingView
+},
+    data: function(){
+       return { isPlayingViewOpen: true,}
     }
 }
 </script>
