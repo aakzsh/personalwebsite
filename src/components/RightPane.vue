@@ -1,5 +1,5 @@
 <template>
-    <div class="rightpane-parent">
+    <div class="rightpane-parent" :style="this.$store.state.st">
         <!-- <p>lmaoooooooooo</p> -->
         <ProfileCard />
         <RightPaneBottom />
@@ -15,7 +15,22 @@ export default {
     components: {
         ProfileCard,
         RightPaneBottom
-    }
+    },
+    data() {
+    return {
+      textColor: "blue"
+    };
+    
+  },
+  
+  computed: {
+  computedStyle() {
+    return {
+      backgroundImage:  this.$store.state.clr
+    };
+  },
+},
+
 }
 </script>
   
@@ -26,7 +41,6 @@ export default {
         width: calc(100% - 6rem);
         display: flex;
         flex-direction: column;
-        background-image: linear-gradient(#717d90 20%, 80%, #121212);
         border-radius: 0.6rem;
         scroll-behavior: smooth;
         scrollbar-width: thin;

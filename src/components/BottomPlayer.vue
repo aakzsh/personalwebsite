@@ -4,8 +4,8 @@
         
         <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"  alt="" :style="style" srcset="" class="card-img">
         <div class="info-and-author">
-                <strong>xyz lolinfo</strong>
-                <p>aakash</p>
+                <strong>{{this.$store.state.info.title}}</strong>
+                <p>{{this.$store.state.info.author}}</p>
             </div>
             <Heart/>
     </div>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="right-parent">
-            <img src="../assets/icons/playview.svg"   v-on:click="togglePlayerOpen" alt="">
+            <img src="../assets/icons/playview.svg"   v-on:click="this.$store.commit('toggleOpen')" alt="">
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@ export default {
     }
 
 .info-and-author{
-        width: 10rem;
+        width: 14rem;
     }
     
 .card-wrapper{

@@ -77,6 +77,7 @@ export default {
                 album: "text",
                 haslink: false,
                 link: "",
+                color: "#818573"
             },
             {
                 index: 2,
@@ -87,7 +88,9 @@ export default {
                 imgurl: "xyz",
                 album: "project",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#818573"
+
             },
             {
                 index: 3,
@@ -98,7 +101,9 @@ export default {
                 imgurl: "xyz",
                 album: "video edit",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#828573"
+
             },
             {
                 index: 4,
@@ -109,7 +114,9 @@ export default {
                 imgurl: "xyz",
                 album: "text",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#819573"
+
             },
             {
                 index: 5,
@@ -120,7 +127,9 @@ export default {
                 imgurl: "xyz",
                 album: "text",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#668573"
+
             },
             {
                 index: 6,
@@ -131,7 +140,9 @@ export default {
                 imgurl: "xyz",
                 album: "project",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#928582"
+
             },
             {
                 index: 7,
@@ -142,7 +153,9 @@ export default {
                 imgurl: "xyz",
                 album: "project",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#8AD573"
+
             },
             {
                 index: 8,
@@ -153,7 +166,9 @@ export default {
                 imgurl: "xyz",
                 album: "video edit",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#298573"
+
             },
             {
                 index: 9,
@@ -164,7 +179,9 @@ export default {
                 imgurl: "xyz",
                 album: "video edit",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#718573"
+
             },
             {
                 index: 10,
@@ -175,7 +192,9 @@ export default {
                 imgurl: "xyz",
                 album: "project",
                 haslink: true,
-                link: "https://github.com/aakzsh/cloudees"
+                link: "https://github.com/aakzsh/cloudees",
+                color: "#81F573"
+
             },
 
         ],);
@@ -254,6 +273,9 @@ export default {
     width: 20rem;
 }
 
+table{
+    cursor: context-menu;
+}
 .rightpane-bottom-parent {
     margin-top: 2rem;
     background: linear-gradient(#12121250, #121212, #121212);
@@ -271,6 +293,7 @@ export default {
 input:focus {
     outline: none;
 }
+
 
 .modal {
     right: 10.5rem;
@@ -393,6 +416,8 @@ select::-ms-expand {
 
 .songs-listitem {
     background-color: rgba(0, 0, 0, 0);
+    
+
 }
 
 .songs-listitem:hover {

@@ -1,8 +1,8 @@
 <template>
-    <div class="playingview-parent" v-if="NowPlayingOpen">
+    <div class="playingview-parent" v-if="this.$store.state.isPlayingViewOpen">
         <div class="type-title">
-            <strong>Project</strong>
-            <img src="../assets/icons/close.svg" class="close" alt="" v-on:click="togglePlayerOpen">
+            <strong>{{this.$store.state.info.album}}</strong>
+            <img src="../assets/icons/close.svg" class="close" alt="" v-on:click="this.$store.commit('toggleOpen')">
         </div>
         <img src="../assets/images/this-is-aakash.jpg" class="card-image" alt="">
         <div class="project-meta">
