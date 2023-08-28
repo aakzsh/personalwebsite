@@ -1,44 +1,55 @@
 <template>
-    <div class="playingview-parent" v-if="visible">
+    <div class="playingview-parent" v-if="NowPlayingOpen">
         <div class="type-title">
             <strong>Project</strong>
-            <img src="../assets/icons/close.svg" class="close" alt="" v-on:click="toggle">
+            <img src="../assets/icons/close.svg" class="close" alt="" v-on:click="togglePlayerOpen">
         </div>
         <img src="../assets/images/this-is-aakash.jpg" class="card-image" alt="">
         <div class="project-meta">
             <div>
-                <h2>fOoL fOr YoU</h2>
-                <p>aakash</p>
+                <h2>{{this.$store.state.info.title}}</h2>
+                <p>{{this.$store.state.info.author}}</p>
             </div>
 <div class="icons">
     <img src="../assets/icons/globe.svg" alt="">
-    <img src="../assets/icons/heart.svg" alt="">
+    <Heart />
+    <!-- <img src="../assets/icons/heart.svg"  id="hearty" alt=""> -->
 
 </div>
 
         </div>
         <div class="project-desc">
-<p>hello everyone im aakash and this is a test text heheheh he wderfvred rgelmvrfqderv 3 hello everyone im  ne im aakash and this is a test text heheheh he wderfvred rgelmvrfqderv 3 hello everyone im  aakash and this is a test text heheheh he wderfvred rgelmvrfqderv 3</p>
+<p @click="this.$store.commit('increment')">{{ this.$store.state.count }}</p>
 </div>
     </div>
 </template>
   
 <script>
-import { ref } from 'vue';
-
+// import { ref } from 'vue';
+import Heart from './Heart.vue';
 export default {
     name: 'PlayingView',
-    setup() {
-        const visible = ref(true);
-        function toggle() {
-            visible.value = !visible.value;
-        }
-        return { visible, toggle }
-    }
+    // setup() {
+    //     const visible = ref(true);
+    //     function toggle() {
+    //         visible.value = !visible.value;
+    //     }
+        
+    //     return { visible, toggle }
+    // },
+    components: {
+        Heart
+    },
 }
 </script>
   
 <style scoped>
+
+/* #hearty{
+    background-image: url('../assets/icons/heart-green.svg');
+    background-size: contain;
+    background-repeat: no-repeat;    
+} */
 .playingview-parent {
     height: calc(100% - 0.5rem);
     background-color: #121212;
@@ -52,6 +63,7 @@ export default {
     overflow-x: hidden;
     scroll-behavior: smooth;
     scrollbar-width: thin;
+    scrollbar-gutter:stable;
 }
 
 .playingview-parent:hover {
@@ -86,7 +98,7 @@ export default {
 .icons{
     display: flex;
     gap: 0.5rem;
-    
+    align-items: center;
 }
 
 .project-desc{
@@ -100,11 +112,12 @@ export default {
     /* height: 10rem; */
     height: max-content;
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.752);
+    
 }
 </style>
   

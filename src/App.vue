@@ -1,3 +1,5 @@
+
+
 <template>
   <MobileHomePage v-if="isMobile"/>
   <MainContent v-if="isWeb"/>
@@ -7,7 +9,7 @@
 <script>
 import MainContent from './components/MainContent.vue';
 import BottomPlayer from './components/BottomPlayer.vue';
-import MobileHomePage from './components/HomePage.vue'
+import MobileHomePage from './components/HomePage.vue';
 export default {
   name: 'App',
   components: {

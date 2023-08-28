@@ -3,11 +3,11 @@
         <div class="card-wrapper">
         
         <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"  alt="" :style="style" srcset="" class="card-img">
-        <div>
-                <strong>xyz info</strong>
+        <div class="info-and-author">
+                <strong>xyz lolinfo</strong>
                 <p>aakash</p>
             </div>
-            <img src="../assets/icons/heart.svg" alt="">
+            <Heart/>
     </div>
         <div class="mid-parent">
             <div class="btns-parent">
@@ -26,14 +26,18 @@
             </div>
         </div>
         <div class="right-parent">
-            <img src="../assets/icons/playview.svg" alt="">
+            <img src="../assets/icons/playview.svg"   v-on:click="togglePlayerOpen" alt="">
         </div>
     </div>
 </template>
   
 <script>
+import Heart from './Heart.vue';
 export default {
     name: 'BottomPlayer',
+    components: {
+        Heart
+    },
 }
 </script>
   
@@ -50,6 +54,11 @@ export default {
         height: 3.5rem;
         width: 3.5rem;
     }
+
+.info-and-author{
+        width: 10rem;
+    }
+    
 .card-wrapper{
     display: flex;
     align-items: center;

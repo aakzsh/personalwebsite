@@ -1,5 +1,5 @@
 <template>
-    <td class="serialnum">1</td>
+    <td class="serialnum">{{ ind +1}}</td>
     <td class="songtitle">
         <div class="songtile-parent">
         <div>
@@ -7,13 +7,13 @@
 
         </div>
         <div>
-            <p class="song-title-text">hehe</p>
-        <p  class="song-author-text">lmao</p>
+            <p class="song-title-text">{{ content.title }}</p>
+        <p  class="song-author-text">{{content.author}}</p>
         </div>
     </div></td>
-    <td class="album">Love Like This</td>
+    <td class="album">{{content.album}}</td>
     <td class="dateadded">20 hours ago</td>
-    <td class="duration">2:32</td>
+    <td class="duration">{{Math.floor(content.readtime/60) + ":" + content.readtime%60}}</td>
 </template>
   
 <script>
@@ -21,6 +21,7 @@ export default {
     name: 'SongTile',
     props: {
         content: Object,
+        ind: Number
     }
 }
 </script>
@@ -60,8 +61,7 @@ export default {
     font-size: 1rem;
 } */
 .song-author-text{
-    /* font-size: 0.9rem; */
-    opacity: 0.5;
+  opacity: 0.5;
 }
 </style>
   

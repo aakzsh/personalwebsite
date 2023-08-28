@@ -30,6 +30,7 @@ export default {
         align-items: center;
         overflow-y: hidden;
         overflow-x: hidden;
+
         
     }
     .parent:hover{

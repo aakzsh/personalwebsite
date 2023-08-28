@@ -3,10 +3,10 @@
         <div class="card-wrapper">
         
         <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"  alt="" :style="style" srcset="" class="card-img">
-        <div>
+        <div class="info-and-author">
                 <strong>xyz info</strong>
                 <p>aakash</p>
-            </div>
+        </div>
     </div>
        
     <div class="song-card-right">

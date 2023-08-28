@@ -27,16 +27,13 @@ export default {
         display: flex;
         flex-direction: column;
         background-image: linear-gradient(#717d90 20%, 80%, #121212);
-        /* background: linear-gradient(rgb(141, 192, 255),rgb(141, 192, 255), #121212, #121212); */
-        /* background: linear-gradient(rgb(141, 192, 255),rgba(141, 192, 255,0.25),#121212, #121212); */
-        /* background-color: #121212; */
-        overflow: auto;
         border-radius: 0.6rem;
         scroll-behavior: smooth;
         scrollbar-width: thin;
         overflow-y: hidden;
         overflow-x: hidden;
-        /* scrollbar-gutter: stable; */
+        scrollbar-gutter: stable ;
+        padding-right: 0rem;
     }
     .rightpane-parent:hover {
     overflow-y: auto;

@@ -5,11 +5,13 @@
             <img src="../assets/images/this-is-aakash.jpg" class="profile-img" alt="" srcset="">
         </div>
         <div>
-            <p class="pre-title">Public Playlist</p>
+            <p class="pre-title">Public Portfolio</p>
             <strong><p class="title">This Is AAKASH</p></strong>
-            <p class="post-title">This is aakash. The essential tracks, all in one playlist</p>
+            <p class="post-title">This is AAKASH. The essential works, all in one place!</p>
             <div class="post-title-info">
-                <p>spotify logo and stuff</p>
+                <p>theme inspired by</p>
+                <img src="../assets/icons/spotify_icon.png" class="spotify-icon" alt="">
+                <p>(obviously)</p>
             </div>
         </div>
     </div>
@@ -23,6 +25,18 @@ export default {
   
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700');
+.spotify-icon{
+    height: 1.5rem;
+}
+.post-title-info{
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: -0.9rem;
+    font-weight: bold;
+}
 .profilecard-parent{
     margin-left: 2rem;
     margin-top: 2rem;

@@ -1,12 +1,12 @@
 <template>
     <div class="grandparent">
         <div class="parent">
-            <img src="../../assets/icons/home.svg" alt="" srcset="" onclick="window.location.reload()">
-            <img src="../../assets/icons/search.svg" alt="" srcset="" @click="toggle">
+            <img src="../../assets/icons/home.svg" title="home" alt="home" srcset="" onclick="window.location.reload()">
+            <img src="../../assets/icons/search.svg" title="search" alt="search" srcset="" @click="toggle">
         </div>
     </div>
     <div class="modal" v-if="showModal" @click:outside="toggle" >
-        <input type="text" class="search-input" id="inp">
+        <input type="text" class="search-input" id="inp" v-on:keyup.enter="search">
         <button @click="search"><img src="../../assets/icons/search.svg" alt=""></button>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
     methods: {
     search (){
         find(document.getElementById('inp').value);
+        this.toggle();
     }
   }
 
@@ -42,6 +43,8 @@ export default {
     margin-top: 0.5rem
 }
 
+
+
 .search-input{
     background-color: #121212;
     border: none;
@@ -54,6 +57,7 @@ button{
     background-color: transparent;
     border: none;
 }
+
 
 .parent {
     display: flex;
