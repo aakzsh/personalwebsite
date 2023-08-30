@@ -18,24 +18,23 @@ export default {
 </script>
   
 <style scoped>
-    .parent{
-        height: 100%;
-        width: 5rem;
-        min-width: 5rem;
-        max-width: 5rem;
-        /* background-color: black; */
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center; */
-        align-items: center;
-        overflow-y: hidden;
-        overflow-x: hidden;
+.parent {
+    height: 100%;
+    width: 5rem;
+    min-width: 5rem;
+    max-width: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
-        
-    }
-    .parent:hover{
-        overflow-y: auto;
-        scrollbar-width: thin;
-    }
+
+}
+
+.parent:hover {
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
 </style>
   

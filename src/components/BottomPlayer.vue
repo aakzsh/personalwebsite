@@ -1,12 +1,12 @@
 <template>
     <div class="bottom-player-div">
-        <div class="card-wrapper">
+        <div class="card-wrapper" title="Now Playing">
 
             <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"
                 alt="" :style="style" srcset="" class="card-img">
             <div class="info-and-author">
-                <strong>{{this.$store.state.usersinfo[this.$store.state.currentIndex].title}}</strong>
-                <p>{{this.$store.state.usersinfo[this.$store.state.currentIndex].author}}</p>
+                <strong>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
+                <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].author }}</p>
             </div>
             <Heart />
         </div>
@@ -19,10 +19,10 @@
                     :title="'shuffle: ' + this.$store.state.isOnShuffle" @click="this.$store.commit('toggleShuffle')"
                     alt="">
 
-                <img src="../assets/icons/prev.svg" class="small" alt="" @click="prevSong">
-                <img src="../assets/icons/play.svg" v-if="!this.$store.state.isPlaying" @click="greet" class="large" alt="">
-                <img src="../assets/icons/pause.svg" v-else @click="greet" class="large" alt="">
-                <img src="../assets/icons/next.svg" class="small" alt="" @click="nextSong">
+                <img src="../assets/icons/prev.svg" title="Previous" class="small" alt="" @click="prevSong">
+                <img src="../assets/icons/play.svg" title="Play" v-if="!this.$store.state.isPlaying" @click="greet" class="large" alt="">
+                <img src="../assets/icons/pause.svg" title="Pause" v-else @click="greet" class="large" alt="">
+                <img src="../assets/icons/next.svg" title="Next" class="small" alt="" @click="nextSong">
                 <img src="../assets/icons/repeat-selected.svg" v-if="this.$store.state.isOnRepeat"
                     :title="'repeat: ' + this.$store.state.isOnRepeat" class="secondary" alt=""
                     @click="this.$store.commit('toggleRepeat')">
@@ -30,14 +30,17 @@
                     class="secondary" alt="" @click="this.$store.commit('toggleRepeat')">
             </div>
             <div class="sound-bar-parent">
-                <p>{{Math.floor(startTime/60) + ":" + startTime%60}}</p>
+                <p>{{ Math.floor(startTime / 60) + ":" + `${startTime % 60 == 0 ? '00' : startTime % 60}` }}</p>
                 <div class="progress-bar">
 
                 </div>
-                <p>{{Math.floor(endTime/60) + ":" + `${endTime%60==0?'00':endTime%60}`}}</p>
+                <p>{{ Math.floor(this.$store.state.usersinfo[this.$store.state.currentIndex].readtime / 60) + ":" +
+                    `${this.$store.state.usersinfo[this.$store.state.currentIndex].readtime % 60 == 0 ? '00' :
+                        this.$store.state.usersinfo[this.$store.state.currentIndex].readtime % 60}` }}
+                </p>
             </div>
         </div>
-        <div class="right-parent">
+        <div class="right-parent" title="Open/Close Playing View">
             <img src="../assets/icons/playview.svg" v-on:click="this.$store.commit('toggleOpen')" alt="">
         </div>
     </div>
@@ -53,14 +56,25 @@ export default {
     components: {
         Heart
     },
-    setup(){
-        const startTime = ref(40);
-        const endTime = ref(180);
-        const starty = startTime.value/endTime.value * 100 + "%"
-        const endy = `${100 - startTime.value/endTime.value * 100}` + "%"
-        return {startTime, endTime, endy, starty};
-    },  
-        data() {
+    setup() {
+        const startTime = ref(0);
+        const endTime = ref(Number(2));
+        function increaseTime() {
+            setInterval(function () { startTime.value++ }, 1000)
+        }
+        function resetTime() {
+            const intervalIds = [];
+            for (const interval of window.intervals) {
+                intervalIds.push(interval.id);
+            }
+            for (const intervalId of intervalIds) {
+                clearInterval(intervalId);
+            }
+            startTime.value = 0;
+        }
+        return { startTime, endTime, increaseTime, resetTime };
+    },
+    data() {
         return {
             selectedVoice: 0,
             synth: window.speechSynthesis,
@@ -80,13 +94,13 @@ export default {
     },
     methods: {
 
-        nextSong(){
+        nextSong() {
             this.stop();
             this.$store.commit('incIndex');
         },
 
-        
-        prevSong(){
+
+        prevSong() {
             this.stop();
             this.$store.commit('decIndex');
         },
@@ -100,7 +114,7 @@ export default {
             }
         },
 
-       
+
         greet() {
             if (this.synth.speaking) {
                 this.$store.commit('togglePlaying', false);
@@ -110,32 +124,27 @@ export default {
             if (this.synth.paused) {
                 this.synth.resume();
                 this.$store.commit('togglePlaying', true);
-
             }
-            this.greetingSpeech.text = this.$store.state.usersinfo[this.$store.state.currentIndex].title;
+            this.greetingSpeech.text = "Disclaimer: This is a machine generated audio!. " + this.$store.state.usersinfo[this.$store.state.currentIndex].content;
 
-            this.greetingSpeech.voice = this.voiceList[0]
+            this.greetingSpeech.voice = this.voiceList[Math.floor(Math.random() * 5)]
 
             this.synth.speak(this.greetingSpeech,)
             this.greetingSpeech.onend = () => {
                 if (this.$store.state.isOnRepeat) {
-                    // this.greet();
                     this.$store.commit('togglePlaying', false);
                 }
                 else {
                     this.$store.commit('togglePlaying', false);
                     this.stop()
                     this.synth.cancel()
-                    if(this.$store.state.isOnShuffle){
+                    if (this.$store.state.isOnShuffle) {
                         let randomNumber = Math.random();
-                    let rInt = Math.floor(randomNumber * 9);
-                    this.$store.commit('setIndex', rInt);
-                    // this.greet();
+                        let rInt = Math.floor(randomNumber * 9);
+                        this.$store.commit('setIndex', rInt);
                     }
-                    else{
-                        // this.stop()
+                    else {
                         this.$store.commit('incIndex');
-                        // this.greet();
                     }
                 }
             };
@@ -167,6 +176,7 @@ export default {
 .secondary {
     height: 1.3rem;
 }
+
 
 .info-and-author {
     width: 14rem;
@@ -216,8 +226,7 @@ export default {
 
     width: 30rem;
     height: 0.1rem;
-    /* background-color: rgba(255, 255, 255, 0.529); */
-    background-image: linear-gradient(to right, white v-bind(starty), rgba(255, 255, 255, 0.529) 0%);
+    background-image: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.529) 0%);
 
 }
 
@@ -226,5 +235,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}</style>
+}
+</style>
   

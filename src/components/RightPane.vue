@@ -1,9 +1,7 @@
 <template>
     <div class="rightpane-parent" :style="this.$store.state.st">
-        <!-- <p>lmaoooooooooo</p> -->
         <ProfileCard />
         <RightPaneBottom />
-    
     </div>
 </template>
   

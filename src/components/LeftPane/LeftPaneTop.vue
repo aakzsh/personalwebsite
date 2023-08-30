@@ -5,7 +5,7 @@
             <img src="../../assets/icons/search.svg" title="search" alt="search" srcset="" @click="toggle">
         </div>
     </div>
-    <div class="modal" v-if="showModal" @click:outside="toggle" >
+    <div class="modal" v-if="showModal" @click:outside="toggle">
         <input type="text" class="search-input" id="inp" v-on:keyup.enter="search">
         <button @click="search"><img src="../../assets/icons/search.svg" alt=""></button>
     </div>
@@ -25,11 +25,11 @@ export default {
         return { showModal, toggle }
     },
     methods: {
-    search (){
-        find(document.getElementById('inp').value);
-        this.toggle();
+        search() {
+            find(document.getElementById('inp').value);
+            this.toggle();
+        }
     }
-  }
 
 
 }
@@ -45,7 +45,7 @@ export default {
 
 
 
-.search-input{
+.search-input {
     background-color: #121212;
     border: none;
     border-bottom: 1px solid white;
@@ -53,7 +53,7 @@ export default {
     font-size: 1.2rem;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 }
@@ -76,7 +76,7 @@ img {
     height: 1.5rem;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
@@ -93,5 +93,4 @@ input:focus{
     justify-content: space-around;
     align-items: center;
 }
-
 </style>

@@ -2,12 +2,7 @@
     <div class="main-content">
         <LeftPane />
         <RightPane />
-        <!-- <p v-on:click="increment">{{ count }}</p> -->
         <PlayingView v-if="count"/>
-        <!-- <div v-if="isPlayingViewOpen">
-            
-        </div> -->
-
     </div>
 </template>
   

@@ -1,18 +1,18 @@
 <template>
     <div class="rightpane-bottom-parent">
-        <!-- <p>lmaoooooooooo</p> -->
         <div class="content-options">
             <div class="content-left">
-                <img src="../assets/icons/play-green.svg" class="left-play" alt="">
-                <Heart id="x" />
-                <img src="../assets/icons/download.svg" @click="downloadFile" class="left" alt="">
+                <img src="../assets/icons/play-green.svg" v-if="!this.$store.state.isPlaying" class="left-play" title="Paused" alt="">
+                <img src="../assets/icons/pause-green.svg" v-else class="left-play" alt="" title="Playing">
+                <Heart id="x" title="Like"/>
+                <img src="../assets/icons/download.svg" @click="downloadFile" class="left" alt="" title="Download as PDF">
             </div>
             <div class="modal" v-if="!showModal" @click:outside="toggle">
                 <input type="text" class="search-input" placeholder="type here" id="inp" v-on:keyup.enter="search">
                 <button @click="search"><img src="../assets/icons/search.svg" alt=""></button>
             </div>
             <div class="content-right">
-                <select name="sorter" @change="sorting">
+                <select name="sorter" @change="sorting" title="Sort">
                     <option value="Custom order">Custom Order</option>
                     <option value="Title">Title</option>
                     <option value="Author">Author</option>
@@ -43,7 +43,8 @@
                     <td></td>
                 </tr>
                 <br>
-                <tr v-for="(user, index) in this.$store.state.usersinfo" v-bind:key="user.name" class="songs-listitem" @click="this.$store.commit('setInfo', index)">
+                <tr v-for="(user, index) in this.$store.state.usersinfo" v-bind:key="user.name" class="songs-listitem" :title="user.title"
+                    @click="this.$store.commit('setInfo', index)">
                     <SongTile :content="user" :ind="index" />
                 </tr>
             </tbody>
@@ -66,14 +67,30 @@ export default {
         function toggle() {
             showModal.value = !showModal.value;
         }
-       
-        function sorting(event) {
+
+
+        return { showModal, toggle }
+    },
+    methods: {
+        search() {
+            find(document.getElementById('inp').value);
+        },
+        downloadFile() {
+            const url = "https://www.africau.edu/images/default/sample.pdf";
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', "testfile.pdf");
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.URL.revokeObjectURL(url);
+        },
+        sorting(event) {
             console.log(event.target.value);
-            // var sorter = [index, title, author, album, date, readtime]
-            var m = this.$store.state.usersinfo.value;
+            let m = this.$store.state.usersinfo
             switch (event.target.value) {
                 case "Date": m.sort(function (a, b) {
-                    return a.date.localeCompare(b.date)
+                    return a.date > b.date ? 1 : a.date < b.date ? -1 : 0
                 });
                     break;
                 case "Title": m.sort(function (a, b) {
@@ -103,25 +120,6 @@ export default {
 
             this.$store.commit('setUsersInfo', m);
 
-            // usersinfo.value = m;
-            // console.log(usersinfo)
-        }
-        return { showModal, toggle, sorting }
-    },
-    methods: {
-        search() {
-            find(document.getElementById('inp').value);
-            // this.toggle()
-        },
-        downloadFile() {
-            const url = "https://www.africau.edu/images/default/sample.pdf";
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', "testfile.pdf");
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
-            window.URL.revokeObjectURL(url);
         }
 
     },
@@ -131,7 +129,6 @@ export default {
 <style scoped>
 #x {
     scale: 1.8;
-    /* background-color: orangered; */
 }
 
 .selector-dummy {
@@ -143,17 +140,16 @@ export default {
     width: 20rem;
 }
 
-table{
+table {
     cursor: context-menu;
 }
+
 .rightpane-bottom-parent {
     margin-top: 2rem;
     background: linear-gradient(#12121250, #121212, #121212);
-    /* background-color: #121212; */
     height: max-content;
     backdrop-filter: blur(30px);
     border-radius: 0 0 1rem 1rem;
-    /* padding-right: 0.5rem; */
 }
 
 .rightpane-bottom-parent:hover {
@@ -168,7 +164,6 @@ input:focus {
 .modal {
     right: 10.5rem;
     top: 1.8rem;
-    /* background-color: #121212; */
     position: absolute;
     z-index: 1;
     height: 4rem;
@@ -252,12 +247,10 @@ select {
     outline: none;
     font-size: 1rem;
     font-weight: 500;
-    /* letter-spacing: 1px; */
     color: rgba(255, 255, 255, 0.8);
     border-radius: 0.2rem;
     text-align: right;
-    /* transition: background-color 1s; */
-    
+
 }
 
 select:hover {
@@ -286,7 +279,7 @@ select::-ms-expand {
 
 .songs-listitem {
     background-color: rgba(0, 0, 0, 0);
-    
+
 
 }
 

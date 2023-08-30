@@ -1,19 +1,20 @@
 <template>
-    <td class="serialnum">{{ ind +1}}</td>
+    <td class="serialnum">{{ ind + 1 }}</td>
     <td class="songtitle">
         <div class="songtile-parent">
-        <div>
-            <img src="../assets/images/this-is-aakash.jpg" class="songtile-img" alt="">
+            <div>
+                <img src="../assets/images/this-is-aakash.jpg" class="songtile-img" alt="">
 
+            </div>
+            <div>
+                <p class="song-title-text">{{ content.title }}</p>
+                <p class="song-author-text">{{ content.author }}</p>
+            </div>
         </div>
-        <div>
-            <p class="song-title-text">{{ content.title }}</p>
-        <p  class="song-author-text">{{content.author}}</p>
-        </div>
-    </div></td>
-    <td class="album">{{content.album}}</td>
-    <td class="dateadded">20 hours ago</td>
-    <td class="duration">{{Math.floor(content.readtime/60) + ":" + content.readtime%60}}</td>
+    </td>
+    <td class="album">{{ content.album }}</td>
+    <td class="dateadded">{{ `${content.date.getDate()} ${content.date.toLocaleString('default', { month: 'long' })}, ${content.date.getFullYear()}` }}</td>
+    <td class="duration">{{ Math.floor(content.readtime / 60) + ":" + content.readtime % 60 }}</td>
 </template>
   
 <script>
@@ -27,12 +28,12 @@ export default {
 </script>
   
 <style scoped>
-.songtitle{
+.songtitle {
     width: 30%;
 
 }
 
-.songtile-parent{
+.songtile-parent {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -40,28 +41,29 @@ export default {
     line-height: 0.5rem;
     gap: 1rem;
 }
-.songtile-img{
+
+.songtile-img {
     height: 3rem;
 }
-.serialnum{
+
+.serialnum {
     width: 5%;
     padding-left: 1rem;
 }
 
-.dateadded{
+.dateadded {
     width: 20%;
 }
-.duration{
+
+.duration {
     width: 20%;
 }
-.album{
+
+.album {
     width: 20%;
 }
-/* .song-title-text{
-    font-size: 1rem;
-} */
-.song-author-text{
-  opacity: 0.5;
-}
-</style>
+
+.song-author-text {
+    opacity: 0.5;
+}</style>
   
