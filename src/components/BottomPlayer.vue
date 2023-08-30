@@ -1,48 +1,156 @@
 <template>
     <div class="bottom-player-div">
         <div class="card-wrapper">
-        
-        <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"  alt="" :style="style" srcset="" class="card-img">
-        <div class="info-and-author">
-                <strong>{{this.$store.state.info.title}}</strong>
-                <p>{{this.$store.state.info.author}}</p>
+
+            <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"
+                alt="" :style="style" srcset="" class="card-img">
+            <div class="info-and-author">
+                <strong>{{this.$store.state.usersinfo[this.$store.state.currentIndex].title}}</strong>
+                <p>{{this.$store.state.usersinfo[this.$store.state.currentIndex].author}}</p>
             </div>
-            <Heart/>
-    </div>
+            <Heart />
+        </div>
         <div class="mid-parent">
             <div class="btns-parent">
-                <img src="../assets/icons/shuffle.svg" class="small" alt="">
-                <img src="../assets/icons/prev.svg" class="small" alt="">
-                <img src="../assets/icons/play.svg" class="large" alt="">
-                <img src="../assets/icons/next.svg" class="small" alt="">
-                <img src="../assets/icons/repeat.svg" class="small" alt="">
+                <img src="../assets/icons/shuffle-selected.svg" :title="'shuffle: ' + this.$store.state.isOnShuffle"
+                    v-if="this.$store.state.isOnShuffle" @click="this.$store.commit('toggleShuffle')" class="secondary"
+                    alt="">
+                <img src="../assets/icons/shuffle.svg" v-else class="secondary"
+                    :title="'shuffle: ' + this.$store.state.isOnShuffle" @click="this.$store.commit('toggleShuffle')"
+                    alt="">
+
+                <img src="../assets/icons/prev.svg" class="small" alt="" @click="prevSong">
+                <img src="../assets/icons/play.svg" v-if="!this.$store.state.isPlaying" @click="greet" class="large" alt="">
+                <img src="../assets/icons/pause.svg" v-else @click="greet" class="large" alt="">
+                <img src="../assets/icons/next.svg" class="small" alt="" @click="nextSong">
+                <img src="../assets/icons/repeat-selected.svg" v-if="this.$store.state.isOnRepeat"
+                    :title="'repeat: ' + this.$store.state.isOnRepeat" class="secondary" alt=""
+                    @click="this.$store.commit('toggleRepeat')">
+                <img src="../assets/icons/repeat.svg" v-else :title="'repeat: ' + this.$store.state.isOnRepeat"
+                    class="secondary" alt="" @click="this.$store.commit('toggleRepeat')">
             </div>
             <div class="sound-bar-parent">
-                <p>0:00</p>
+                <p>{{Math.floor(startTime/60) + ":" + startTime%60}}</p>
                 <div class="progress-bar">
 
                 </div>
-                <p>3:00</p>
+                <p>{{Math.floor(endTime/60) + ":" + `${endTime%60==0?'00':endTime%60}`}}</p>
             </div>
         </div>
         <div class="right-parent">
-            <img src="../assets/icons/playview.svg"   v-on:click="this.$store.commit('toggleOpen')" alt="">
+            <img src="../assets/icons/playview.svg" v-on:click="this.$store.commit('toggleOpen')" alt="">
         </div>
     </div>
 </template>
   
 <script>
+
+
+import { ref } from 'vue';
 import Heart from './Heart.vue';
 export default {
     name: 'BottomPlayer',
     components: {
         Heart
     },
+    setup(){
+        const startTime = ref(40);
+        const endTime = ref(180);
+        const starty = startTime.value/endTime.value * 100 + "%"
+        const endy = `${100 - startTime.value/endTime.value * 100}` + "%"
+        return {startTime, endTime, endy, starty};
+    },  
+        data() {
+        return {
+            selectedVoice: 0,
+            synth: window.speechSynthesis,
+            voiceList: [],
+            greetingSpeech: new window.SpeechSynthesisUtterance()
+        }
+    },
+    mounted() {
+        this.voiceList = this.synth.getVoices()
+        this.synth.onvoiceschanged = () => {
+            this.voiceList = this.synth.getVoices()
+            setTimeout(() => {
+                this.isLoading = false
+            }, 800)
+        }
+        this.listenForSpeechEvents()
+    },
+    methods: {
+
+        nextSong(){
+            this.stop();
+            this.$store.commit('incIndex');
+        },
+
+        
+        prevSong(){
+            this.stop();
+            this.$store.commit('decIndex');
+        },
+
+        listenForSpeechEvents() {
+            this.greetingSpeech.onstart = () => {
+                this.$store.commit('togglePlaying', true);
+            }
+
+            this.greetingSpeech.onend = () => {
+            }
+        },
+
+       
+        greet() {
+            if (this.synth.speaking) {
+                this.$store.commit('togglePlaying', false);
+
+                this.synth.pause();
+            }
+            if (this.synth.paused) {
+                this.synth.resume();
+                this.$store.commit('togglePlaying', true);
+
+            }
+            this.greetingSpeech.text = this.$store.state.usersinfo[this.$store.state.currentIndex].title;
+
+            this.greetingSpeech.voice = this.voiceList[0]
+
+            this.synth.speak(this.greetingSpeech,)
+            this.greetingSpeech.onend = () => {
+                if (this.$store.state.isOnRepeat) {
+                    // this.greet();
+                    this.$store.commit('togglePlaying', false);
+                }
+                else {
+                    this.$store.commit('togglePlaying', false);
+                    this.stop()
+                    this.synth.cancel()
+                    if(this.$store.state.isOnShuffle){
+                        let randomNumber = Math.random();
+                    let rInt = Math.floor(randomNumber * 9);
+                    this.$store.commit('setIndex', rInt);
+                    // this.greet();
+                    }
+                    else{
+                        // this.stop()
+                        this.$store.commit('incIndex');
+                        // this.greet();
+                    }
+                }
+            };
+
+        },
+        stop() {
+            this.synth.pause();
+            this.$store.commit('togglePlaying', false);
+        }
+    }
 }
 </script>
   
 <style scoped>
-.bottom-player-div{
+.bottom-player-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,16 +158,21 @@ export default {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
 }
-.card-img{
-        height: 3.5rem;
-        width: 3.5rem;
-    }
 
-.info-and-author{
-        width: 14rem;
-    }
-    
-.card-wrapper{
+.card-img {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.secondary {
+    height: 1.3rem;
+}
+
+.info-and-author {
+    width: 14rem;
+}
+
+.card-wrapper {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -67,25 +180,29 @@ export default {
     line-height: 0.6rem;
     width: 20rem;
 }
-.right-parent{
+
+.right-parent {
     width: 20rem;
     display: flex;
     justify-content: flex-end;
 }
-.small{
+
+.small {
     height: 1rem;
 }
-.large{
+
+.large {
     height: 2rem;
 }
-.btns-parent{
+
+.btns-parent {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
-.sound-bar-parent{
+.sound-bar-parent {
     margin-top: -0.5rem;
     display: flex;
     gap: 1rem;
@@ -94,17 +211,20 @@ export default {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.593);
 }
-.progress-bar{
-    
+
+.progress-bar {
+
     width: 30rem;
     height: 0.1rem;
-    background-color: rgba(255, 255, 255, 0.529);
+    /* background-color: rgba(255, 255, 255, 0.529); */
+    background-image: linear-gradient(to right, white v-bind(starty), rgba(255, 255, 255, 0.529) 0%);
+
 }
-.mid-parent{
+
+.mid-parent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-</style>
+}</style>
   

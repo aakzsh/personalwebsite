@@ -1,14 +1,14 @@
 <template>
     <div class="playingview-parent" v-if="this.$store.state.isPlayingViewOpen">
         <div class="type-title">
-            <strong>{{this.$store.state.info.album}}</strong>
+            <strong>{{this.$store.state.usersinfo[this.$store.state.currentIndex].album}}</strong>
             <img src="../assets/icons/close.svg" class="close" alt="" v-on:click="this.$store.commit('toggleOpen')">
         </div>
         <img src="../assets/images/this-is-aakash.jpg" class="card-image" alt="">
         <div class="project-meta">
             <div>
-                <h2>{{this.$store.state.info.title}}</h2>
-                <p>{{this.$store.state.info.author}}</p>
+                <h2>{{this.$store.state.usersinfo[this.$store.state.currentIndex].title}}</h2>
+                <p>{{this.$store.state.usersinfo[this.$store.state.currentIndex].author}}</p>
             </div>
 <div class="icons">
     <img src="../assets/icons/globe.svg" alt="">

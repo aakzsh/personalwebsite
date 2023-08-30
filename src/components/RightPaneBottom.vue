@@ -43,7 +43,7 @@
                     <td></td>
                 </tr>
                 <br>
-                <tr v-for="(user, index) in usersinfo" v-bind:key="user.name" class="songs-listitem" @click="this.$store.commit('setInfo', user)">
+                <tr v-for="(user, index) in this.$store.state.usersinfo" v-bind:key="user.name" class="songs-listitem" @click="this.$store.commit('setInfo', index)">
                     <SongTile :content="user" :ind="index" />
                 </tr>
             </tbody>
@@ -66,142 +66,11 @@ export default {
         function toggle() {
             showModal.value = !showModal.value;
         }
-        const usersinfo = ref([
-            {
-                index: 1,
-                title: "About me",
-                author: "aakash",
-                date: "30 farvary",
-                readtime: 150,
-                imgurl: "xyz",
-                album: "text",
-                haslink: false,
-                link: "",
-                color: "#818573"
-            },
-            {
-                index: 2,
-                title: "cloudees",
-                author: "aakash, shruti",
-                date: "30 farvary",
-                readtime: 330,
-                imgurl: "xyz",
-                album: "project",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#818573"
-
-            },
-            {
-                index: 3,
-                title: "rEaR vIeW",
-                author: "aakash, originally by zayn",
-                date: "30 farvary",
-                readtime: 30,
-                imgurl: "xyz",
-                album: "video edit",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#828573"
-
-            },
-            {
-                index: 4,
-                title: "Skillset",
-                author: "aakash",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "text",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#819573"
-
-            },
-            {
-                index: 5,
-                title: "Education",
-                author: "aakash",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "text",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#668573"
-
-            },
-            {
-                index: 6,
-                title: "HighFive",
-                author: "aakash, project",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "project",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#928582"
-
-            },
-            {
-                index: 7,
-                title: "Retrotape",
-                author: "aakash, shruti",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "project",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#8AD573"
-
-            },
-            {
-                index: 8,
-                title: "end.",
-                author: "aakash, originally by Jeremy",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "video edit",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#298573"
-
-            },
-            {
-                index: 9,
-                title: "Dandelions",
-                author: "aakash, originally by Ruth B.",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "video edit",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#718573"
-
-            },
-            {
-                index: 10,
-                title: "Icesicle",
-                author: "aakash, shruti, hanna, hamda",
-                date: "30 farvary",
-                readtime: 1050,
-                imgurl: "xyz",
-                album: "project",
-                haslink: true,
-                link: "https://github.com/aakzsh/cloudees",
-                color: "#81F573"
-
-            },
-
-        ],);
+       
         function sorting(event) {
             console.log(event.target.value);
             // var sorter = [index, title, author, album, date, readtime]
-            var m = usersinfo.value;
+            var m = this.$store.state.usersinfo.value;
             switch (event.target.value) {
                 case "Date": m.sort(function (a, b) {
                     return a.date.localeCompare(b.date)
@@ -232,11 +101,12 @@ export default {
                     break;
             }
 
+            this.$store.commit('setUsersInfo', m);
 
-            usersinfo.value = m;
-            console.log(usersinfo)
+            // usersinfo.value = m;
+            // console.log(usersinfo)
         }
-        return { showModal, toggle, usersinfo, sorting }
+        return { showModal, toggle, sorting }
     },
     methods: {
         search() {
