@@ -5,7 +5,26 @@
             <img src="../assets/icons/close.svg" class="close" alt="" title="Close Playing View"
                 v-on:click="this.$store.commit('toggleOpen')">
         </div>
-        <img src="../assets/images/this-is-aakash.jpg" class="card-image" alt="">
+                  <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/9.jpg" v-else
+                alt="" :style="style" srcset="" class="card-image">
         <div class="project-meta">
             <div>
                 <h2 title="Title">{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</h2>
@@ -20,8 +39,11 @@
             </div>
         </div>
         <div class="project-desc" title="Description">
-            <p @click="this.$store.commit('increment')">{{
-                this.$store.state.usersinfo[this.$store.state.currentIndex].content }}</p>
+            <div v-for="(item, index) in this.$store.state.usersinfo[this.$store.state.currentIndex].content" :key="index">
+                <p>{{ item }}</p>
+                <!-- <br> -->
+                
+            </div>
         </div>
     </div>
 </template>
@@ -96,6 +118,8 @@ export default {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
     height: max-content;
     margin-left: 1rem;
     margin-right: 0.5rem;

@@ -2,8 +2,27 @@
     <div class="bottom-player-div">
         <div class="card-wrapper" title="Now Playing">
 
-            <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"
+            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0"
                 alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8"
+                alt="" :style="style" srcset="" class="card-img">
+                <img src="../assets/covers/9.jpg" v-else
+                alt="" :style="style" srcset="" class="card-img">
+                
             <div class="info-and-author">
                 <strong>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
                 <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].author }}</p>
@@ -96,12 +115,14 @@ export default {
 
         nextSong() {
             this.stop();
+            this.synth.cancel();
             this.$store.commit('incIndex');
         },
 
 
         prevSong() {
             this.stop();
+            this.synth.cancel();
             this.$store.commit('decIndex');
         },
 
@@ -125,7 +146,7 @@ export default {
                 this.synth.resume();
                 this.$store.commit('togglePlaying', true);
             }
-            this.greetingSpeech.text = "Disclaimer: This is a machine generated audio!. " + this.$store.state.usersinfo[this.$store.state.currentIndex].content;
+            this.greetingSpeech.text = "Disclaimer: This is a machine generated audio!. " + this.$store.state.usersinfo[this.$store.state.currentIndex].content.join(" ");
 
             this.greetingSpeech.voice = this.voiceList[Math.floor(Math.random() * 5)]
 

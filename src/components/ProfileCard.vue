@@ -11,7 +11,7 @@
             <p class="post-title">This is AAKASH. The essential works, all in one place!</p>
             <div class="post-title-info">
                 <p>theme inspired by</p>
-                <img src="../assets/icons/spotify_icon.png" class="spotify-icon" alt="">
+                <img src="../assets/icons/spotify_icon.png" title="Spotify" class="spotify-icon" alt="">
                 <p>(obviously)</p>
             </div>
         </div>

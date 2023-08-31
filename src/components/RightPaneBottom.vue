@@ -76,10 +76,10 @@ export default {
             find(document.getElementById('inp').value);
         },
         downloadFile() {
-            const url = "https://www.africau.edu/images/default/sample.pdf";
+            const url = "/this-is-aakash.pdf";
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', "testfile.pdf");
+            link.setAttribute('download', "This-Is-Aakash.pdf");
             document.body.appendChild(link);
             link.click();
             link.remove();
