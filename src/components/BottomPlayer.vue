@@ -27,7 +27,7 @@
                 <strong>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
                 <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].author }}</p>
             </div>
-            <Heart />
+            <Heart/>
         </div>
         <div class="mid-parent">
             <div class="btns-parent">

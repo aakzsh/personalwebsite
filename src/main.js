@@ -25,7 +25,7 @@ const store = createStore({
           album: "Text",
           haslink: false,
           link: "",
-          color: "#121212",
+          color: "#717d90",
 
           readtime: 150,
           imgurl: "xyz",
@@ -34,6 +34,7 @@ const store = createStore({
         "I like doing video editing, not in a very professional and full fledged manner but yes. It brings me inner peace which is cool, unless you dont run into memory issues while exporting",
         "So yep, go through the portfolio, the layout is very intuitive, almost every button has some functionality, you may find some easter eggs hidden too, and lmk how you like it!"
         ],
+        liked: false,
         },
         {
           index: 2,
@@ -50,6 +51,7 @@ const store = createStore({
           "We all see and adore different clouds in the sky. But do you know that every cloud structure falls into a specific category? Yea thats true, and cloudees lets you see just that. It is trained on our custom dataset of more than 9000 images and can categorize cloud images into one of the nine categories. It works using CNN (Convolutional Neural Networks) and is available on Web, as an Android app and as an API.",
           "The app is available on Play Store for you to try it out, visit it by clicking on the globe icon."
         ],
+        liked: false,
         },
         {
           index: 3,
@@ -67,6 +69,7 @@ const store = createStore({
             "The edit signifies the fast transitions between changing lyrics, which is a skewed version of Kinetic Typography edits.",
             "Check it out by visiting the YouTube link by clicking on the globe icon!"
           ],
+          liked: false,
         },
         {
           index: 4,
@@ -88,6 +91,7 @@ const store = createStore({
             "All these skills that I've mentioned, I use them because I like them, not because they're required in industry or anything like that. I'm NOT an industry pleaser.",
             "You can checkout my GitHub from the left panel or from the globe icon here.",
           ],
+          liked: false,
         },
         {
           index: 5,
@@ -104,6 +108,7 @@ const store = createStore({
             "I'm currently doing my bachelors in electronics engineering from New Delhi, expecting to graduate in 2024.",
             "I've done by schooling from Noida.",
           ],
+          liked: false,
         },
         {
           index: 6,
@@ -122,6 +127,7 @@ const store = createStore({
             "Then the teaacher can feasibly send files or textual materials to all the students without the need of internet, using offline transfer. The app utilizes the powers of UDP protocol which makes it fast and efficient!",
             "Check out the source code by clicking on the globe icon.",
           ],
+          liked: false,
         },
         {
           index: 7,
@@ -140,6 +146,7 @@ const store = createStore({
             "Retrotape beautifies the process. It lets you create visually beautiful and soft mixtapes, that are essentially playlists, for the people you love. You can add as many songs as you like on our web application, and then share the link with whoever you want to. The app works best on web",
             "You can check it out by clicking the globe icon.",
           ],
+          liked: false,
         },
         {
           index: 8,
@@ -158,6 +165,7 @@ const store = createStore({
             "The edit elements depicts randomness and is portrayed in form of a song playback.",
             "check it out on YouTube.",
           ],
+          liked: false,
         },
         {
           index: 9,
@@ -175,6 +183,7 @@ const store = createStore({
             "The edit captures the essence of spoofing the nature by metaphorically relating it to the things and moments of our real life.",
             "Check it out on YouTube by clicking on the globe icon.",
           ],
+          liked: false,
         },
         {
           index: 10,
@@ -192,6 +201,7 @@ const store = createStore({
             "The game is available on Web and as an Android app. The animations are built using Rive, and the web application is hosted using firebase!",
             "You can try out the game by clicking on the globe icon.",
           ],
+          liked: false,
         },
       ],
     };
@@ -215,6 +225,9 @@ const store = createStore({
       state.st = {
         backgroundImage: "linear-gradient(" + color + " 20%, 80%, #121212)",
       };
+    },
+    toggleLiked(state){
+      state.usersinfo[state.currentIndex].liked = !state.usersinfo[state.currentIndex].liked
     },
     setUsersInfo(state, val) {
       state.usersinfo = val;
