@@ -16,6 +16,7 @@ const store = createStore({
       isOnShuffle: false,
       isPlaying: false,
       currentIndex: 0,
+      playlistLiked: false,
       usersinfo: [
         {
           index: 1,
@@ -228,6 +229,9 @@ const store = createStore({
     },
     toggleLiked(state){
       state.usersinfo[state.currentIndex].liked = !state.usersinfo[state.currentIndex].liked
+    },
+    togglePlaylistLiked(state){
+      state.playlistLiked = !state.playlistLiked
     },
     setUsersInfo(state, val) {
       state.usersinfo = val;

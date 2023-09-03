@@ -54,7 +54,7 @@
   
 <script>
 import SongTile from './SongTile.vue';
-import Heart from './Heart.vue'
+import Heart from './HeartPlaylist.vue'
 import { ref } from 'vue';
 export default {
     name: 'RightPaneBottom',
