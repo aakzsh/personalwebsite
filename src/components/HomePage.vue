@@ -17,8 +17,11 @@
                 </div>
                 <div class="icons-flex">
                     <div class="icons-flex-left">
-                        <HeartPlaylist class="heartplaylist" />
-                        <img src="../assets/icons/download.svg" @click="downloadFile" class="left" alt=""
+                        <img src="../assets/icons/heart-green.svg" v-if="this.$store.state.playlistLiked" @click="this.$store.commit('togglePlaylistLiked')" class="action-icon" alt=""
+                            title="Download as PDF">
+                        <img src="../assets/icons/heart.svg" v-else @click="this.$store.commit('togglePlaylistLiked')" class="action-icon" alt=""
+                            title="Download as PDF">
+                        <img src="../assets/icons/download.svg" @click="downloadFile" class="action-icon" alt=""
                             title="Download as PDF">
                     </div>
                     <div>
@@ -90,7 +93,8 @@
                     srcset="" class="card-image">
                 <img src="../assets/covers/9.jpg" v-else alt="" :style="style" srcset="" class="card-image">
             </div>
-            <div class="playarea-header">
+            <div class="super-parent">
+                <div class="playarea-header">
                 <img src="../assets/icons/pushdown.svg" @click="togglePlayingView" class="pushdown" alt="">
                 <div class="playarea-header-text">
                     <p class="showing-from-playlist">SHOWING FROM PLAYLIST</p>
@@ -138,17 +142,21 @@
                 </div>
 
             </div>
-
+            </div>
+            <div class="playarea-footer-content" :style="computedStyle">
+            <p v-for="(item, index) in this.$store.state.usersinfo[this.$store.state.currentIndex].content.join('. ').split('.')" :key="index">
+            {{ item}}
+            </p>
+            <br>
+            <!-- <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].content.join(" ") }}</p> -->
         </div>
-        <div class="playarea-footer-content" :style="computedStyle">
-            <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].content.join(" ") }}</p>
         </div>
+        
     </div>
 </template>
   
 <script>
 import { ref } from 'vue';
-import HeartPlaylist from './HeartPlaylist.vue';
 import MobileBottomPlayer from './MobileBottomPlayer.vue'
 import MobileSocials from './MobileSocials.vue';
 import MobileSongTile from './MobileSongTile.vue';
@@ -158,7 +166,6 @@ export default {
     components: {
         MobileBottomPlayer,
         MobileSongTile,
-        HeartPlaylist,
         MobileSocials,
         HeartMobile
     },
@@ -228,19 +235,28 @@ export default {
     gap: 1rem;
 }
 
+.super-parent{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .card-imagee {
     z-index: 3;
     width: 90vw;
     height: 90vw;
 }
 
+.action-icon{
+    height: 1.5rem;
+}
 .playing-view-bg {
     height: 100vh;
     width: 100vw;
     position: fixed;
     top: 0;
     z-index: 1;
-    opacity: 0.1;
+    opacity: 0.2;
 
 }
 
@@ -263,7 +279,9 @@ export default {
     z-index: 3;
     /* top: 100vh; */
 }
-
+/* .left{
+    height: 1rem;
+} */
 .info-and-author {
     line-height: 0.5rem;
 }
@@ -282,12 +300,13 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    line-height: 3px;
+    line-height: 0.5rem;
 }
 
 .playarea-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.5rem;
@@ -348,10 +367,11 @@ export default {
     align-items: center;
     padding: 1rem;
     font-size: 0.8rem;
+    gap: 1rem;
 }
 
 .closeicon {
-    height: 1.5rem;
+    height: 1.3rem;
 }
 
 .socials {
@@ -363,9 +383,10 @@ export default {
     grid-row-gap: 0rem;
 }
 
-.heartplaylist {
+/* .heartplaylist {
     transform: scale(1.3);
-}
+} */
+
 
 .listitem-parent {
     /* margin-bottom: 7rem; */
@@ -408,6 +429,7 @@ export default {
 
 .icons-flex-left {
     display: flex;
+    align-items: center;
     gap: 1rem;
 }
 

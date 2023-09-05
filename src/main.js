@@ -32,7 +32,7 @@ const store = createStore({
           imgurl: "xyz",
           content: ["I'm aakash, 21 years old and based in Noida, IN. I like a lot of things, and hate a lot of things as well. This portfolio website of mine is a glimpse of the kind of works I do, and how I like doing things. I like the UX of spotify pretty much, and that's how the theme for my portfolio was brought up.",
           "I'm proud of my identity, and am working almost frequently to get better at things and make a meaningful outcome from life. About the programming part, I like making projects and and stuff where I can put my logic and creativity.",
-        "I like doing video editing, not in a very professional and full fledged manner but yes. It brings me inner peace which is cool, unless you dont run into memory issues while exporting",
+        "I like doing video editing, not in a very professional and full fledged manner but yes. It brings me inner peace which is cool, unless you dont run into memory issues while exporting.",
         "So yep, go through the portfolio, the layout is very intuitive, almost every button has some functionality, you may find some easter eggs hidden too, and lmk how you like it!"
         ],
         liked: false,
@@ -148,9 +148,9 @@ const store = createStore({
           mobileColor: "#D97841",
           color: "#D9784180",
           content: [
-            "We all love music and the feeling that it is capable of bringing",
+            "We all love music and the feeling that it is capable of bringing.",
             "What about when you wanna dedicate songs to someone else, you can create a playlist for them right?",
-            "Retrotape beautifies the process. It lets you create visually beautiful and soft mixtapes, that are essentially playlists, for the people you love. You can add as many songs as you like on our web application, and then share the link with whoever you want to. The app works best on web",
+            "Retrotape beautifies the process. It lets you create visually beautiful and soft mixtapes, that are essentially playlists, for the people you love. You can add as many songs as you like on our web application, and then share the link with whoever you want to. The app works best on web.",
             "You can check it out by clicking the globe icon.",
           ],
           liked: false,
