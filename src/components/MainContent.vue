@@ -2,7 +2,7 @@
     <div class="main-content">
         <LeftPane />
         <RightPane />
-        <PlayingView v-if="count"/>
+        <PlayingView v-if="count" />
     </div>
 </template>
   
@@ -14,26 +14,26 @@ import RightPane from './RightPane.vue';
 import PlayingView from './PlayingView.vue';
 export default {
     name: 'MainContent',
-    setup(){
+    setup() {
         const count = ref(true);
         function increment() {
-      count.value = !count.value;
-    }
-        return {count, increment}
+            count.value = !count.value;
+        }
+        return { count, increment }
     },
     components: {
-    LeftPane,
-    RightPane,
-    PlayingView
-},
-    data: function(){
-       return { isPlayingViewOpen: true,}
+        LeftPane,
+        RightPane,
+        PlayingView
+    },
+    data: function () {
+        return { isPlayingViewOpen: true, }
     }
 }
 </script>
   
 <style scoped>
-.main-content{
+.main-content {
     height: calc(100vh - 6rem);
     background-color: #000000;
     margin: 0;

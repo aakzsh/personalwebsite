@@ -119,7 +119,6 @@ export default {
     padding-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
     height: max-content;
     margin-left: 1rem;
     margin-right: 0.5rem;

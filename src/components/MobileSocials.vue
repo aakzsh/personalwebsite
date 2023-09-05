@@ -1,39 +1,39 @@
 <template>
-<a :href="url">
-    <div class="cont">
-        <img :src="index" alt="">
-        <p>{{title}}</p>
-    </div>
-</a>
+    <a :href="url">
+        <div class="cont">
+            <img :src="index" alt="">
+            <p>{{ title }}</p>
+        </div>
+    </a>
 </template>
 
 <script>
-    export default {
+export default {
     name: 'MobileSocials',
     props: {
         title: String,
         url: String,
         index: String,
     }
-    }
+}
 </script>
 
 <style scoped>
-.cont{
+.cont {
     min-width: calc(100vw/2.5);
-    /* height: calc(100vw/2.5 + 20px); */
-    /* background-color: blue; */
 }
 
-img{
+img {
     height: calc(100vw/2.5);
     width: calc(100vw/2.5);
     border-radius: 0.5rem;
 }
-p{
+
+p {
     margin-top: 0rem;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
     font-size: 0.9rem;

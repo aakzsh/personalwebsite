@@ -1,12 +1,16 @@
 <template>
     <div class="grandparent">
         <div class="parent">
-            
+
             <img src="../../assets/icons/playlist.svg" alt="library" title="library" srcset="">
-            <a href="https://open.spotify.com/playlist/22fzmYDT88DIbBFW82izqQ?si=fd25aff5583e481a" target="_blank"><LeftPaneCards imgurl="https://i.scdn.co/image/ab67706c0000da8470d229cb865e8d81cdce0889" alt="songs i like"
-                title="songs i like" radius="0.3" /></a>
-            <a href="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1faf5.png" target="_blank"><LeftPaneCards imgurl="https://misc.scdn.co/your-episodes/SE-64.png" alt="other stuff i like"
-                title="other stuff i like" radius="0.3" /></a>
+            <a href="https://open.spotify.com/playlist/22fzmYDT88DIbBFW82izqQ?si=fd25aff5583e481a" target="_blank">
+                <LeftPaneCards imgurl="https://i.scdn.co/image/ab67706c0000da8470d229cb865e8d81cdce0889" alt="songs i like"
+                    title="songs i like" radius="0.3" />
+            </a>
+            <a href="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1faf5.png" target="_blank">
+                <LeftPaneCards imgurl="https://misc.scdn.co/your-episodes/SE-64.png" alt="other stuff i like"
+                    title="other stuff i like" radius="0.3" />
+            </a>
             <a :href="github" target="_blank">
                 <LeftPaneCards imgurl="https://i.ibb.co/nbCZDQp/github.jpg" alt="socials (GitHub)" title="socials (GitHub)"
                     radius="0.3" />
@@ -58,7 +62,6 @@ export default {
 }
 
 .parent {
-
     display: flex;
     flex-direction: column;
     padding-top: 1rem;

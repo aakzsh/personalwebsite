@@ -2,32 +2,31 @@
     <div class="bottom-player-div">
         <div class="card-wrapper" title="Now Playing">
 
-            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8"
-                alt="" :style="style" srcset="" class="card-img">
-                <img src="../assets/covers/9.jpg" v-else
-                alt="" :style="style" srcset="" class="card-img">
-                
+            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0" alt="" :style="style" srcset=""
+                class="card-img">
+            <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/9.jpg" v-else alt="" :style="style" srcset="" class="card-img">
+
             <div class="info-and-author">
                 <strong>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
                 <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].author }}</p>
             </div>
-            <Heart/>
+            <Heart />
         </div>
         <div class="mid-parent">
             <div class="btns-parent">
@@ -37,9 +36,9 @@
                 <img src="../assets/icons/shuffle.svg" v-else class="secondary"
                     :title="'shuffle: ' + this.$store.state.isOnShuffle" @click="this.$store.commit('toggleShuffle')"
                     alt="">
-
                 <img src="../assets/icons/prev.svg" title="Previous" class="small" alt="" @click="prevSong">
-                <img src="../assets/icons/play.svg" title="Play" v-if="!this.$store.state.isPlaying" @click="greet" class="large" alt="">
+                <img src="../assets/icons/play.svg" title="Play" v-if="!this.$store.state.isPlaying" @click="greet"
+                    class="large" alt="">
                 <img src="../assets/icons/pause.svg" title="Pause" v-else @click="greet" class="large" alt="">
                 <img src="../assets/icons/next.svg" title="Next" class="small" alt="" @click="nextSong">
                 <img src="../assets/icons/repeat-selected.svg" v-if="this.$store.state.isOnRepeat"
@@ -198,7 +197,6 @@ export default {
     height: 1.3rem;
 }
 
-
 .info-and-author {
     width: 14rem;
 }
@@ -256,6 +254,5 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-</style>
+}</style>
   

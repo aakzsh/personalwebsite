@@ -55,7 +55,6 @@ export default {
 .songtile-parent {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     align-items: center;
     line-height: 0.5rem;
     gap: 1rem;

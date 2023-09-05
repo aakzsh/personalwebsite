@@ -2,10 +2,27 @@
     <div class="bottom-player-div">
         <div class="card-wrapper">
 
-            <img src="https://media.discordapp.net/attachments/873911460055642152/1144206354345640076/Picsart_23-08-24_15-15-29-859.jpg"
-                alt="" :style="style" srcset="" class="card-img">
+            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0" alt="" :style="style" srcset=""
+                class="card-img">
+            <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8" alt="" :style="style"
+                srcset="" class="card-img">
+            <img src="../assets/covers/9.jpg" v-else alt="" :style="style" srcset="" class="card-img">
             <div class="info-and-author">
-                <strong>{{this.$store.state.usersinfo[this.$store.state.currentIndex].title}}</strong>
+                <strong>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
                 <p>{{ simplify() }}</p>
             </div>
         </div>
@@ -16,7 +33,6 @@
 
         </div>
     </div>
-
 </template>
   
 <script>
@@ -24,14 +40,14 @@ import Heart from './Heart.vue';
 export default {
     name: 'MobileBottomPlayer',
     methods: {
-        simplify(){
+        simplify() {
             let text = this.$store.state.usersinfo[this.$store.state.currentIndex].author;
-            if(text.length>25){
+            if (text.length > 25) {
                 text = text.substr(0, 24) + "...";
             }
             return text
         },
-        showAlert(){
+        showAlert() {
             alert("This feature is only available on desktop version")
         }
     },
@@ -58,7 +74,7 @@ export default {
     gap: 1rem;
 }
 
-.info-and-author{
+.info-and-author {
     /* background-color: orange; */
     display: flex;
     flex-direction: column;

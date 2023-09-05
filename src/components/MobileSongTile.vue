@@ -1,28 +1,17 @@
 <template>
-    <!-- <td class="serialnum">{{ ind + 1 }}</td> -->
     <div class="songtile-grand">
         <div class="songtile-parent">
             <div>
-                <img src="../assets/covers/0.jpg" v-if="ind== 0"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/1.jpg" v-else-if="ind== 1"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/2.jpg" v-else-if="ind== 2"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/3.jpg" v-else-if="ind== 3"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/4.jpg" v-else-if="ind== 4"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/5.jpg" v-else-if="ind== 5"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/6.jpg" v-else-if="ind== 6"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/7.png" v-else-if="ind== 7"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/8.jpg" v-else-if="ind== 8"
-                alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/9.jpg" v-else
-                alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/0.jpg" v-if="ind == 0" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/1.jpg" v-else-if="ind == 1" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/2.jpg" v-else-if="ind == 2" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/3.jpg" v-else-if="ind == 3" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/4.jpg" v-else-if="ind == 4" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/5.jpg" v-else-if="ind == 5" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/6.jpg" v-else-if="ind == 6" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/7.png" v-else-if="ind == 7" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/8.jpg" v-else-if="ind == 8" alt="" :style="style" srcset="" class="songtile-img">
+                <img src="../assets/covers/9.jpg" v-else alt="" :style="style" srcset="" class="songtile-img">
 
             </div>
             <div>
@@ -30,8 +19,7 @@
                 <p class="song-author-text">{{ content.author }}</p>
             </div>
         </div>
-        <HeartMobile title="Like" :index="ind"/>
-        <!-- <HeartMobile title="like" :index="ind" /> -->
+        <HeartMobile title="Like" :index="ind" />
     </div>
 </template>
   
@@ -58,7 +46,6 @@ export default {
 .songtile-parent {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     align-items: center;
     line-height: 0.5rem;
     gap: 1rem;
@@ -67,7 +54,8 @@ export default {
 .songtile-img {
     height: 3rem;
 }
-.songtile-grand{
+
+.songtile-grand {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,5 +69,6 @@ export default {
 
 .song-author-text {
     opacity: 0.5;
-}</style>
+}
+</style>
   
