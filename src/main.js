@@ -27,7 +27,7 @@ const store = createStore({
           haslink: false,
           link: "",
           color: "#717d90",
-
+          mobileColor: "#717d90",
           readtime: 150,
           imgurl: "xyz",
           content: ["I'm aakash, 21 years old and based in Noida, IN. I like a lot of things, and hate a lot of things as well. This portfolio website of mine is a glimpse of the kind of works I do, and how I like doing things. I like the UX of spotify pretty much, and that's how the theme for my portfolio was brought up.",
@@ -47,6 +47,7 @@ const store = createStore({
           album: "Project",
           haslink: true,
           link: "https://play.google.com/store/apps/details?id=co.zanie.cloudees",
+          mobileColor: "#8F36A5",
           color: "#8F36A5",
           content: ["At its core, cloudees is a deep learning keras model. It is deployed on various platforms and that's what makes it special to be put here.",
           "We all see and adore different clouds in the sky. But do you know that every cloud structure falls into a specific category? Yea thats true, and cloudees lets you see just that. It is trained on our custom dataset of more than 9000 images and can categorize cloud images into one of the nine categories. It works using CNN (Convolutional Neural Networks) and is available on Web, as an Android app and as an API.",
@@ -64,6 +65,7 @@ const store = createStore({
           album: "Video Edit",
           haslink: true,
           link: "https://youtu.be/BuPfGjpAt7g",
+          mobileColor: "#A55E36",
           color: "#A55E36",
           content: [
             "Rear View is a song originally created by zayn. I've created a short edit using that song in background.",
@@ -82,6 +84,7 @@ const store = createStore({
           album: "Text",
           haslink: true,
           link: "https://github.com/aakzsh",
+          mobileColor: "#368AA5",
           color: "#368AA5",
           content: [
             "I've a fair knowledge of computer science technologies.",
@@ -104,6 +107,7 @@ const store = createStore({
           album: "Text",
           haslink: false,
           link: "",
+          mobileColor: "#D700A8",
           color: "#D700A860",
           content: [
             "I'm currently doing my bachelors in electronics engineering from New Delhi, expecting to graduate in 2024.",
@@ -121,6 +125,7 @@ const store = createStore({
           album: "Project",
           haslink: true,
           link: "https://github.com/aakzsh/highfive",
+          mobileColor: "#2E6330",
           color: "#2E6330",
           content: [
             "HighFive is a concept application built to solve a very prevalent real-life problem. We know that, in many places accross the world, the internet connections aren't upto the mark. This fact hampers the functioning of digital education. And digital education as we all know is very much crucial in current times.",
@@ -140,6 +145,7 @@ const store = createStore({
           album: "Project",
           haslink: true,
           link: "https://retrotape.web.app/",
+          mobileColor: "#D97841",
           color: "#D9784180",
           content: [
             "We all love music and the feeling that it is capable of bringing",
@@ -159,6 +165,7 @@ const store = createStore({
           album: "Video Edit",
           haslink: true,
           link: "https://www.youtube.com/shorts/mCBuVovEYPU",
+          mobileColor: "#378B68",
           color: "#41D99970",
           content: [
             "A short video edit with a kinda sad but soothing background song called end, by Jeremy Zucker.",
@@ -178,6 +185,7 @@ const store = createStore({
           album: "Video Edit",
           haslink: true,
           link: "https://www.youtube.com/shorts/b7yut6ERRWU",
+          mobileColor: "#D5A834",
           color: "#D5A83480",
           content: [
             "I created a short edit on the infamous song Dandelions, by Ruth B.",
@@ -196,6 +204,7 @@ const store = createStore({
           album: "Project",
           haslink: true,
           link: "https://icesicle-puzzle.web.app/",
+          mobileColor: "#267283",
           color: "#34B8D560",
           content: [
             "Icesicle is a tricky puzzle game built using flutter. The puzzle game is a slider puzzle where you are required to arrange the pieces in a certain order, by sliding them.",

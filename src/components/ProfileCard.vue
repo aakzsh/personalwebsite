@@ -9,7 +9,7 @@
                 <p class="title">This Is AAKASH</p>
             </strong>
             <p class="post-title">This is AAKASH. The essential works, all in one place!</p>
-            <div class="post-title-info">
+            <div class="post-title-info"> 
                 <p>theme inspired by</p>
                 <img src="../assets/icons/spotify_icon.png" title="Spotify" class="spotify-icon" alt="">
                 <p>(obviously)</p>

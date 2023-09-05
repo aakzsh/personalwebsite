@@ -1,5 +1,5 @@
 <template>
-    <div v-if="this.$store.state.usersinfo[this.$store.state.currentIndex].liked" @click="this.$store.commit('toggleLiked')" class="heart-cont">
+    <div v-if="this.$store.state.usersinfo[index].liked" @click="this.$store.commit('toggleLiked')" class="heart-cont">
         <img src="../assets/icons/heart-green.svg" id="hearty" class="h" alt="">
     </div>
     <div v-else @click="this.$store.commit('toggleLiked')" class="heart-cont">
@@ -10,7 +10,7 @@
 <script>
 import { ref } from 'vue';
 export default {
-    name: "HeartButton",
+    name: "HeartMobileButton",
     setup() {
         const liked = ref(false);
         function toggle() {
@@ -18,11 +18,11 @@ export default {
         }
         return { liked, toggle };
     },
-    // props(){
-    //     return {
-    //         ind: Number,
-    //     }
-    // }
+    props:{
+
+            index: Number,
+        }
+    
 }
 </script>
 

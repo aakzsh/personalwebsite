@@ -17,7 +17,8 @@ export default {
             liked.value = !liked.value;
         }
         return { liked, toggle };
-    }
+    },
+   
 }
 </script>
 

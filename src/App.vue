@@ -9,16 +9,18 @@
 <script>
 import MainContent from './components/MainContent.vue';
 import BottomPlayer from './components/BottomPlayer.vue';
+import MobileHomePage from './components/HomePage.vue';
 export default {
   name: 'App',
   components: {
     MainContent,
     BottomPlayer,
+    MobileHomePage
   },
   data: function () {
     return {
-      isMobile: window.innerWidth < 600,
-      isWeb: window.innerWidth >= 600,
+      isMobile: window.innerWidth < 800,
+      isWeb: window.innerWidth >= 800,
     }
   },
 }
