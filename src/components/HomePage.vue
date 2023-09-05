@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="mobile-body-child">
-            <img src="../assets/images/this-is-aakash.jpg" alt="" class="profile-img" srcset="">
+            <img src="../assets/images/this-is-aakash.jpg" alt=""  class="profile-img" srcset="">
             <div class="meta-info">
                 <p>This is AAKASH. The essential works, all in one place!</p>
                 <div class="post-title-info">
@@ -72,11 +72,34 @@
         </div>
 
     </div>
-    <div class="playing-view-div" v-else>
+    <div class="playing-view-div" :style="playingViewStyle" v-else>
+        
 <!-- <p>ab mai dikhunga</p> -->
 <div class="playerarea">
+    <div class="playing-view-bg">
+            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8"
+                alt="" :style="style" srcset="" class="card-image">
+                <img src="../assets/covers/9.jpg" v-else
+                alt="" :style="style" srcset="" class="card-image">
+        </div>
     <div class="playarea-header">
-        <img src="../assets/icons/pushdown.svg" @click="togglePlayingView" alt="">
+        <img src="../assets/icons/pushdown.svg" @click="togglePlayingView" class="pushdown" alt="">
         <div class="playarea-header-text">
             <p class="showing-from-playlist">SHOWING FROM PLAYLIST</p>
             <strong>This Is AAKASH</strong>
@@ -85,14 +108,27 @@
     </div>
     <div class="playarea-footer">
         <div class="playarea-footer-meta">
-            <div>
-                <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</p>
+            <div class="info-and-author">
+                <strong class="playarea-title">{{ this.$store.state.usersinfo[this.$store.state.currentIndex].title }}</strong>
                 <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].author }}</p>
             </div>
-            <Heart/>
+            <div class="playarea-icons-right">
+                <a v-if="this.$store.state.usersinfo[this.$store.state.currentIndex].haslink"
+                    :href="this.$store.state.usersinfo[this.$store.state.currentIndex].link" target="_blank"><img
+                        src="../assets/icons/globe.svg" alt="">
+                </a>
+            <!-- <a href=""> -->
+                <HeartMobile title="Like" :index="this.$store.state.currentIndex"/>
+            <!-- </a> -->
+            </div>
         </div>
+        
     </div>
+    
 </div>
+<div class="playarea-footer-content" :style="computedStyle">
+            <p>{{ this.$store.state.usersinfo[this.$store.state.currentIndex].content.join(" ") }}</p>
+        </div>
 </div>
 </template>
   
@@ -102,7 +138,7 @@ import HeartPlaylist from './HeartPlaylist.vue';
 import MobileBottomPlayer from './MobileBottomPlayer.vue'
 import MobileSocials from './MobileSocials.vue';
 import MobileSongTile from './MobileSongTile.vue';
-import Heart from './Heart.vue';
+import HeartMobile from './HeartMobile.vue';
 export default {
     name: 'MobileHomePage',
     components: {
@@ -110,14 +146,14 @@ export default {
     MobileSongTile,
     HeartPlaylist,
     MobileSocials,
-    Heart
+    HeartMobile
 },
     setup(){
         const promoOpen = ref(true);
         function togglePromo(){
             promoOpen.value = false;
         }
-        const isPlayingViewOpen = ref(true);
+        const isPlayingViewOpen = ref(false);
         function togglePlayingView(){
             isPlayingViewOpen.value = !isPlayingViewOpen.value;
         }
@@ -141,9 +177,16 @@ export default {
         }
     },
     computed: {
+    
         computedStyle() {
             return {
                 backgroundColor: this.$store.state.usersinfo[this.$store.state.currentIndex].mobileColor
+                // backgroundImage: "url(../assets/covers/0.jpg)"
+                        };
+        },
+        playingViewStyle() {
+            return {
+                // backgroundImage: 'url("../assets/covers/0.jpg")'
             };
         },
     },
@@ -155,10 +198,52 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+   
 }
+
+.playarea-icons-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.playing-view-bg{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    opacity: 0.2;
+
+}
+.pushdown{
+    height: 1.5rem;
+}
+.playarea-footer{
+    z-index: 3;
+}
+.playarea-footer-content{
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    /* margin-top: 100vh; */
+    z-index: 3;
+    /* top: 100vh; */
+}
+.info-and-author{
+    line-height: 0.5rem;
+}
+
 .showing-from-playlist{
     font-size: 0.8rem;
     opacity: 0.9;
+}
+.playarea-title{
+    font-size: 1.2rem;
 }
 .playarea-header-text{
     display: flex;
@@ -173,6 +258,7 @@ export default {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.5rem;
+    z-index: 2;
 }
 .explore {
     font-size: 1.1rem;
@@ -185,12 +271,14 @@ export default {
 }
 
 .playerarea{
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     /* background-color: rgb(37, 31, 20); */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* position: fixed; */
+    /* top: 0; */
 }
 .post-title-info {
     display: flex;
@@ -306,5 +394,10 @@ export default {
     width: calc(90vw - 8rem);
     height: calc(90vw - 8rem);
     box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
-}</style>
+    transition: all 0.5s ease-in-out;
+}
+.profile-img.diminished{
+    height: 3rem;
+}
+</style>
   

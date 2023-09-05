@@ -30,13 +30,14 @@
                 <p class="song-author-text">{{ content.author }}</p>
             </div>
         </div>
-        <HeartMobile title="like" :index="ind" />
+        <HeartMobile title="Like" :index="ind"/>
+        <!-- <HeartMobile title="like" :index="ind" /> -->
     </div>
 </template>
   
 <script>
-// import Heart from './Heart.vue';
 import HeartMobile from './HeartMobile.vue';
+
 
 export default {
     name: 'MobileSongTile',
@@ -44,7 +45,7 @@ export default {
         content: Object,
         ind: Number
     },
-    components: {HeartMobile }
+    components: { HeartMobile }
 }
 </script>
   

@@ -239,6 +239,9 @@ const store = createStore({
     toggleLiked(state){
       state.usersinfo[state.currentIndex].liked = !state.usersinfo[state.currentIndex].liked
     },
+    toggleLikedSpecific(state, index){
+      state.usersinfo[index].liked = !state.usersinfo[index].liked
+    },
     togglePlaylistLiked(state){
       state.playlistLiked = !state.playlistLiked
     },
