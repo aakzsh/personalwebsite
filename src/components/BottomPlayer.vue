@@ -2,23 +2,23 @@
     <div class="bottom-player-div">
         <div class="card-wrapper" title="Now Playing">
 
-            <img src="../assets/covers/0.jpg" v-if="this.$store.state.currentIndex == 0" alt="" :style="style" srcset=""
+            <img src="../assets/covers/0.jpg" v-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 0" alt="" :style="style" srcset=""
                 class="card-img">
-            <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.currentIndex == 1" alt="" :style="style"
+            <img src="../assets/covers/1.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 1" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.currentIndex == 2" alt="" :style="style"
+            <img src="../assets/covers/2.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 2" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.currentIndex == 3" alt="" :style="style"
+            <img src="../assets/covers/3.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 3" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.currentIndex == 4" alt="" :style="style"
+            <img src="../assets/covers/4.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 4" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.currentIndex == 5" alt="" :style="style"
+            <img src="../assets/covers/5.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 5" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.currentIndex == 6" alt="" :style="style"
+            <img src="../assets/covers/6.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 6" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/7.png" v-else-if="this.$store.state.currentIndex == 7" alt="" :style="style"
+            <img src="../assets/covers/7.png" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 7" alt="" :style="style"
                 srcset="" class="card-img">
-            <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.currentIndex == 8" alt="" :style="style"
+            <img src="../assets/covers/8.jpg" v-else-if="this.$store.state.usersinfo[this.$store.state.currentIndex].index -1 == 8" alt="" :style="style"
                 srcset="" class="card-img">
             <img src="../assets/covers/9.jpg" v-else alt="" :style="style" srcset="" class="card-img">
 

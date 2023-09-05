@@ -3,23 +3,23 @@
     <td class="songtitle">
         <div class="songtile-parent">
             <div>
-                <img src="../assets/covers/0.jpg" v-if="ind== 0"
+                <img src="../assets/covers/0.jpg" v-if="content.index== 1"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/1.jpg" v-else-if="ind== 1"
+                <img src="../assets/covers/1.jpg" v-else-if="content.index== 2"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/2.jpg" v-else-if="ind== 2"
+                <img src="../assets/covers/2.jpg" v-else-if="content.index== 3"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/3.jpg" v-else-if="ind== 3"
+                <img src="../assets/covers/3.jpg" v-else-if="content.index== 4"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/4.jpg" v-else-if="ind== 4"
+                <img src="../assets/covers/4.jpg" v-else-if="content.index== 5"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/5.jpg" v-else-if="ind== 5"
+                <img src="../assets/covers/5.jpg" v-else-if="content.index== 6"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/6.jpg" v-else-if="ind== 6"
+                <img src="../assets/covers/6.jpg" v-else-if="content.index== 7"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/7.png" v-else-if="ind== 7"
+                <img src="../assets/covers/7.png" v-else-if="content.index== 8"
                 alt="" :style="style" srcset="" class="songtile-img">
-                <img src="../assets/covers/8.jpg" v-else-if="ind== 8"
+                <img src="../assets/covers/8.jpg" v-else-if="content.index== 9"
                 alt="" :style="style" srcset="" class="songtile-img">
                 <img src="../assets/covers/9.jpg" v-else
                 alt="" :style="style" srcset="" class="songtile-img">
